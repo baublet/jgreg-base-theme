@@ -12,7 +12,7 @@
 		<!-- End: projects code -->
 		<h3 class="navigationCurrentProject">{{ .Site.Params.projectTitle }}</h3>
 		<div class="navigationList">
-	        {{ with .GetPage "templates/navigation.html" }}
+	        {{ with .Site.GetPage "templates/navigation.html" }}
 		      {{ .Content }}
 		    {{ end }}
 		</div>
@@ -27,7 +27,7 @@
 				<i class="far fa-times-circle"></i>
 			</label>
 			<h3>Navigation</h3>
-			{{ with .GetPage "templates/navigationOverflow.html" }}
+			{{ with .Site.GetPage "templates/navigationOverflow.html" }}
 	    		{{ .Content }}
 	    	{{ end }}
 		</div>
