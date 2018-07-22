@@ -1,0 +1,14 @@
+{{ $subproject := .Site.GetPage .Scratch.Get "subproject" }}
+{{ $subprojectHomeLink := (.Site.GetPage $subproject.Params.project_home_page).URL | relURL }}
+
+<div class="pageTitle pageTitle--subProject">
+	<div class="contentBlock">
+		<h1><a href="{{ $subprojectHomeLink }}">{{ $subproject.Title }}</a></h1>
+		<div class="projectSubNavigation">
+			{{ range $subproject.Params.pages }}
+				{{ $page = ($.Site.GetPage $subproject.Params.project_home_page) }}
+				<a href="{{ $page.URL | relURL }}">{{ $page.Title }}</a>
+			{{ end }}
+		</div>
+	</div>
+</div>

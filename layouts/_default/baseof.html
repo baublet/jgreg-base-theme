@@ -1,9 +1,25 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
-{{ partial "head.html" . }}
-<body>
-{{ partial "header.html" . }}
-{{ block "main" . }}{{ end }}
-{{ partial "footer.html" . }}
-</body>
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		{{ partial "head.html" . }}
+	</head>
+	<body>
+		<a href="#content" class="screen-reader-text">Skip to content</a>
+		<div class="header">
+			<div class="contentBlock">
+				<div class="logo">
+					{{ block "logo" . }}{{ end }}
+				</div>
+				{{ partial "searchTop.html" . }}
+				{{ partial "navigation.html" . }}
+			</div>
+		</div>
+		{{ partial "pageTitle.html" }}
+		<div class="body contentBlock longForm" id="content">
+			{{ block "main" . }}{{ end }}
+		</div>
+		{{ partial "footer.html" . }}
+	</body>
 </html>

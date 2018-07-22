@@ -1,0 +1,40 @@
+<div class="navigation">
+	<input type="checkbox" id="navigationToggleCheck" />
+	<label for="navigationToggleCheck" id="navigationToggleLabel">
+		<span>Navigation</span>
+		<i class="fas fa-bars"></i>
+	</label>
+	<div class="navigationItems">
+		<!-- Do not modify this: projects code -->
+		<div class="navigationOtherProjects" id="projects" data-on-click-toggle-class="on">
+		    <div class="navigationOtherProjectsList" id="navigationProjectsList"></div>
+		</div>
+		<!-- End: projects code -->
+		<h3 class="navigationCurrentProject">{{ .Site.params.projectTitle }}</h3>
+		<div class="navigationList">
+
+	        {{ $currentPage := . }}
+	        {{ range .Site.Menus.main }}
+				<a href="{{ .URL }}"
+					class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}"
+				>
+                    <span>{{ .Name }}</span>
+                </a>
+	        {{ end }}
+
+		</div>
+		<input type="checkbox" id="navigationOverflow" />
+		<label for="navigationOverflow" class="hide-on-mobile">
+			<span>Explore the Project</span>
+			<i class="fas fa-bars"></i>
+		</label>
+		<div class="navigationOverflow" id="navigationOverflow">
+			<label for="navigationOverflow" class="hide-on-mobile">
+				<span>Close</span>
+				<i class="far fa-times-circle"></i>
+			</label>
+			<h3>Navigation</h3>
+			{% block navigationOverflow %}{% endblock %}
+		</div>
+	</div>
+</div>
