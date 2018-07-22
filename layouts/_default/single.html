@@ -1,6 +1,6 @@
 {{ define "main" }}
 	{{ if .Params.content_blocks }}
-		{{ $.Site.Scratch.Set "content_blocks" .Params.content_blocks }}
+		{{ $.Scratch.Set "content_blocks" .Params.content_blocks }}
 		{{ partial "contentBlocks.html" . }}
 	{{ else }}
 		{{ .Content }}
