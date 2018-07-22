@@ -12,16 +12,9 @@
 		<!-- End: projects code -->
 		<h3 class="navigationCurrentProject">{{ .Site.params.projectTitle }}</h3>
 		<div class="navigationList">
-
-	        {{ $currentPage := . }}
-	        {{ range .Site.Menus.main }}
-				<a href="{{ .URL }}"
-					class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}"
-				>
-                    <span>{{ .Name }}</span>
-                </a>
-	        {{ end }}
-
+	        {{ with .GetPage "templates/navigation.html" }}
+		      {{ .Content }}
+		    {{ end }}
 		</div>
 		<input type="checkbox" id="navigationOverflow" />
 		<label for="navigationOverflow" class="hide-on-mobile">
@@ -34,7 +27,9 @@
 				<i class="far fa-times-circle"></i>
 			</label>
 			<h3>Navigation</h3>
-			{% block navigationOverflow %}{% endblock %}
+			{{ with .GetPage "templates/navigationOverflow.html" }}
+	    		{{ .Content }}
+	    	{{ end }}
 		</div>
 	</div>
 </div>
