@@ -10,7 +10,7 @@
 		    <div class="navigationOtherProjectsList" id="navigationProjectsList"></div>
 		</div>
 		<!-- End: projects code -->
-		<h3 class="navigationCurrentProject">{{ .Site.params.projectTitle }}</h3>
+		<h3 class="navigationCurrentProject">{{ .Site.Params.projectTitle }}</h3>
 		<div class="navigationList">
 	        {{ with .GetPage "templates/navigation.html" }}
 		      {{ .Content }}
