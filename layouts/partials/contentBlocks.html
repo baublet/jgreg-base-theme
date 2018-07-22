@@ -1,4 +1,4 @@
-{{ range $index, $block = .Scratch.Get "content_blocks" }}
+{{ range $index, $block := (.Scratch.Get "content_blocks") }}
 	{{ printf "%#v" $block }}
 	<hr>
 {{ end }}
