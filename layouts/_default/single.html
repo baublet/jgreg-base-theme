@@ -1,3 +1,8 @@
 {{ define "main" }}
-  {{ .Content }}
+	{{ if .Params.content_blocks }}
+		{{ .Scratch.set "content_blocks" .Params.content_blocks }}
+		{{ partial "contentBlocks.html" }}
+	{{ else }}
+		{{ .Content }}
+	{{ end }}
 {{ end }}
