@@ -2,7 +2,8 @@
 
 {{ if $subproject }}
 
-	{{ $subprojectHomeLink := (.Site.GetPage "page" $subproject.Params.project_home_page).URL | relURL }}
+	{{ $subprojectHomePage := (.Site.GetPage "page" $subproject.Params.project_home_page) }}
+	{{ $subprojectHomeLink := $subprojectHomePage.URL | relURL }}
 
 	<div class="pageTitle pageTitle--subProject">
 		<div class="contentBlock">
@@ -21,5 +22,16 @@
 			{{ end }}
 		</div>
 	</div>
+
+	{{ if ne $subprojectHomePage .Page }}
+		<div class="subProjectPageTitle">
+			<div class="contentBlock">
+				<h1>{{ .Title }} </h1>
+				{{ if .Params.Subtitle }}
+					<h2>{{ .Params.Subtitle }}</h2>
+				{{ end }}
+			</div>
+		</div>
+	{{ end }}
 
 {{ end }}

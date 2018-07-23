@@ -1,14 +1,6 @@
 {{ if .Params.subproject }}
 	{{ $.Scratch.Set "subproject" .Params.subproject }}
 	{{ partial "subprojectHeader.html" . }}
-	<div class="subProjectPageTitle">
-		<div class="contentBlock">
-			<h1>{{ .Title }} </h1>
-			{{ if .Params.Subtitle }}
-				<h2>{{ .Params.Subtitle }}</h2>
-			{{ end }}
-		</div>
-	</div>
 {{ else }}
 	<div class="pageTitle">
 		<div class="contentBlock">
