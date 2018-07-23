@@ -1,15 +1,15 @@
 {
-  "name": "Base theme SCSS compiler",
-  "version": "0.0.0",
+  "name": "seattle-consortium-theme",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node-sass ./scss/main.scss -o css && node-sass ./static/css/print.scss -o css",
+    "build": "node-sass ./scss/main.scss -o ./static/css && node-sass ./scss/print.scss -o ./static/css",
     "watch": "node-sass -w ./scss/main.scss -o ./static/css --source-map-embed",
     "watch:print": "node-sass -w ./scss/print.scss -o ./static/css"
   },
-  "author": "",
+  "author": "Ryan M. Poe",
   "license": "BSD-2-Clause",
   "devDependencies": {
     "node-sass": "^4.9.0"
