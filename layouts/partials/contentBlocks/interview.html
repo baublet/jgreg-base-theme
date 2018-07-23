@@ -1,0 +1,18 @@
+{{ $link := false }}
+
+{{ if .page_link }}
+	{{ $link := .page_link | relURL }}
+{{ else if .url }}
+	{{ $link := .url }}
+{{ end }}
+
+<div class="pagePreviewCard">
+	<b>
+		{{ if $link }}
+			<a href="aaron_dixon.htm">{{ .title }}</a>
+		{{ else }}
+			{{ .title }}
+		{{ end }}
+	</b>
+	<p><img src="{{ .image }}">{{ .content }}</p>
+</div>
