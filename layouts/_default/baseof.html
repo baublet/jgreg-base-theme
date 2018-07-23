@@ -14,7 +14,7 @@
 				{{ partial "navigation.html" . }}
 			</div>
 		</div>
-		{{ partial "pageTitle.html" }}
+		{{ partial "pageTitle.html" . }}
 		<div class="body contentBlock longForm" id="content">
 			{{ block "main" . }}{{ end }}
 		</div>

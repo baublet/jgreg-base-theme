@@ -1,6 +1,6 @@
-{{ if .Params.Subproject }}
-	{{ .Scratch.Set "subproject" .Params.Subproject }}
-	{{ partial "subProjectHeader.html" . }}
+{{ if .Params.subproject }}
+	{{ $.Scratch.Set "subproject" .Params.subproject }}
+	{{ partial "subprojectHeader.html" . }}
 	<div class="subProjectPageTitle">
 		<div class="contentBlock">
 			<h1>{{ .Title }} </h1>
@@ -10,15 +10,15 @@
 		</div>
 	</div>
 {{ else }}
-		<div class="pageTitle">
-			<div class="contentBlock">
-				<h1>{{ .Title }}</h1>
-				{{ if .Params.Subtitle }}
-					<h2>{{ .Params.Subtitle }}</h2>
-				{{ end }}
-				{{ if .Params.Author }}
-					<div class="author">by Eleanor Mahoney</div>
-				{{ end }}
-			</div>
+	<div class="pageTitle">
+		<div class="contentBlock">
+			<h1>{{ .Title }}</h1>
+			{{ if .Params.Subtitle }}
+				<h2>{{ .Params.Subtitle }}</h2>
+			{{ end }}
+			{{ if .Params.Author }}
+				<div class="author">by {{ .Params.Author }}</div>
+			{{ end }}
 		</div>
+	</div>
 {{ end }}
