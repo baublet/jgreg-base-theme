@@ -1,7 +1,7 @@
 {{ range $index, $block := ($.Scratch.Get "content_blocks") }}
-	{{ printf "%#v" $block }}
 	{{ if fileExists (printf "partials/%s.html" $block.template) }}
-
+		{{ printf "%#v" $block }}
+		{{ partial (printf "%s.html" $block.template) . }}
 	{{ else }}
 		<hr>
 			<h1>ERROR:</h1> <b>Block partial template not found: </b>
