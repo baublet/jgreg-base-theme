@@ -1,0 +1,39 @@
+.contentBlock {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: $max-body-width;
+  padding-left: $spacing-normal;
+  padding-right: $spacing-normal;
+}
+
+.header {
+  padding-top: $spacing-normal;
+  padding-bottom: $spacing-normal;
+}
+
+.body {
+  margin-top: $spacing-large;
+  font-family: $font-family-long-copy;
+}
+
+.footer {
+  background: $color-foreground;
+  color: $color-background;
+  padding: $spacing-large 0;
+  display: flex;
+  align-items: center;
+  font-size: $font-size-small;
+  font-family: $font-family-small;
+  clear: both;
+}
+
+.footer a {
+  color: $color-background;
+  text-decoration: none;
+  border-bottom: 1px solid rgba($color-background, .25);
+}
+
+.footer a:hover, .footer a:focus {
+  border-color: $color-background;
+}

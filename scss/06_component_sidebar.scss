@@ -1,0 +1,110 @@
+$sidebarOffset: 180px;
+
+.sidebar {
+	background: $color-primary;
+	background: linear-gradient(darken($color-primary, 15), darken($color-primary, 20));
+	color: $color-background;
+	padding: 0 $spacing-small $spacing-small;
+	box-shadow: 3px 3px 15px rgba($color-foreground, .15);
+	font-family: $font-family-small;
+	font-size: $font-size-smaller;
+	line-height: 1.25;
+	
+	float: right;
+	width: 300px;
+
+	margin-top: calc(-#{$spacing-large} - 1px);
+	margin-right: calc(-#{$sidebarOffset} - #{$spacing-normal});
+	margin-left: $spacing-normal;
+
+	transition: all 1s $animation-easing-function;
+
+	overflow: hidden;
+	border-radius: 3px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+
+	.centerCaption + & {
+		padding-top: $spacing-small;
+		border-top-left-radius: 3px;
+		margin-top: 0;
+	}
+
+	@include onMobile() {
+		img {
+			width: 100%;
+			height: auto;
+		}
+		* {
+			pointer-events: none;
+		}
+		&.shown {
+			transform: translateX(-$sidebarOffset);
+			* {
+				pointer-events: auto;
+			}
+		}
+	}
+
+	img {
+		box-shadow: 3px 3px 5px -3px rgba($color-foreground, .15);
+		margin-right: auto;
+		margin-left: auto;
+		display: block;
+		border-radius: 3px;
+	}
+
+	@include onDesktop() {
+		padding: $spacing-normal;
+		position: relative;
+		transform: 0;
+		margin-right: -#{$spacing-normal};
+		max-width: 40vw;
+		background: transparent;
+		color: $color-foreground;
+		box-shadow: none;
+	}
+
+	@include onMobile() {
+		a {
+			color: $color-background;
+			text-decoration: underline;
+			&:hover,
+			&:focus,
+			&:active {
+				background: $color-background;
+				color: $color-foreground;
+			}
+		}
+		&:after {
+			display: block;
+			content: "";
+			width: 1px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 50%;
+			background: linear-gradient(rgba($color-foreground, .15), transparent);
+		}
+	}
+
+	table {
+		border: 1px solid rgba($color-foreground, .15);
+		width: 100%;
+	}
+
+	td {
+		padding: $spacing-normal;
+	}
+
+}
+
+@include onDesktop() {
+	.sidebar--wide {
+		min-width: 450px;
+		img {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+}
