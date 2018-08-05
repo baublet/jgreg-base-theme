@@ -8,11 +8,16 @@
 
 .logoLink {
 	display: block;
-	line-height: 0;
+	text-align: center;
+	background: $color-foreground;
+	color: $color-foreground;
+	font-size: $font-size-smaller;
+	font-weight: bold;
 }
 
-.logoImage {
+.logoProjectImage {
 	max-width: 100%;
+	border: 0;
 }
 
 .logo svg {

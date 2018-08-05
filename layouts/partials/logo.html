@@ -1,8 +1,6 @@
 <h1 class="logoH1">
 	<a href="/civilr/" class="logoLink">
-		<span class="logoProjectTitle">{{ $.Site.Params.projectTitle }}</span>
-		{{ if $.Site.Params.projectImage }}
-			<span class="logoProjectImage">{{ $.Site.Params.projectImage }}</span>
-		{{ end }}
+		<img src="{{ "images/logo.png" | relURL }}" alt="{{ $.Site.Params.projectTitle }}" class="logoImage logoMobile">
+		<img src="{{ "images/logo.png" | relURL }}" alt="{{ $.Site.Params.projectTitle }}" class="logoImage logoDesktop">
 	</a>
 </h1>
