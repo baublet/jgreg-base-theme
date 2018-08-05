@@ -9,5 +9,7 @@
 stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,400i,900" rel="stylesheet">
 
-<link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
-<link rel="stylesheet" href="{{ "css/print.css" | relURL }}" media="print">
+{{ $styles := resources.Get "scss/main.scss" | toCSS | postCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
+{{ $printStyles := resources.Get "scss/print.scss" | toCSS | postCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="print">
