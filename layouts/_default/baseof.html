@@ -8,7 +8,7 @@
 		<div class="header">
 			<div class="contentBlock">
 				<div class="logo">
-					{{ block "logo" . }}{{ end }}
+					{{ block "logo" . }}{{ partial "logo.html" . }}{{ end }}
 				</div>
 				{{ partial "searchTop.html" . }}
 				{{ partial "navigation.html" . }}
