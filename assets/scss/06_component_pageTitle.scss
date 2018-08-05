@@ -5,6 +5,7 @@
 	color: $color-background;
 	padding: $spacing-larger 0;
 	text-shadow: 2px 2px 0 black, 2px 2px 5px rgba(black, .5);
+	width: 100%;
 
 	* {
 		+ * {

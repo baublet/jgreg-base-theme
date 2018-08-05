@@ -10,12 +10,14 @@
 .header {
   padding-top: $spacing-normal;
   padding-bottom: $spacing-normal;
+  width: 100%;
 }
 
 .body {
   margin-top: $spacing-large;
   font-family: $font-family-long-copy;
   flex-grow: 1;
+  width: 100%;
 }
 
 .footer {
@@ -27,6 +29,7 @@
   font-size: $font-size-small;
   font-family: $font-family-small;
   clear: both;
+  width: 100%;
 }
 
 .footer a {
