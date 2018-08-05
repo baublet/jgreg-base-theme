@@ -15,6 +15,7 @@
 .body {
   margin-top: $spacing-large;
   font-family: $font-family-long-copy;
+  flex-grow: 1;
 }
 
 .footer {
