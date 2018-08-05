@@ -1,0 +1,49 @@
+.search--top input,
+.search--top button {
+	font-size: $font-size-small;
+}
+
+.search--top {
+	flex-grow: 1;
+	display: flex;
+	justify-content: flex-end;
+	font-family: $font-family-small;
+}
+
+.search--top .searchInput {
+	display: block;
+	height: $spacing-large;
+	padding-right: $spacing-large;
+	@include onDesktop() {
+		display: inline-block;
+		margin-bottom: 0;
+	}
+}
+
+.search--top .searchForm {
+	position: relative;
+	height: $spacing-large;
+}
+
+.search--top .searchButton {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: $spacing-smallest;
+	background: transparent;
+	color: $color-foreground;
+	opacity: .5;
+	&:after {
+		font-family: $font-family-icons;
+		content: "\f002";
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		opacity: 1;
+	}
+}
+
+.searchInput:focus + .searchButton {
+	opacity: 1;
+}
