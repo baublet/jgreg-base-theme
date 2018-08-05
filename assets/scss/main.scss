@@ -1,28 +1,28 @@
-@import "01_settings";
-@import "../../scss/settings";
+@import "01_settings.scss";
+@import "../../scss/settings.scss";
 
-@import "07_vendor_reset";
+@import "07_vendor_reset.scss";
 
-@import "02_tools";
-@import "03_elements";
+@import "02_tools.scss";
+@import "03_elements.scss";
 
-@import "04_object_grid";
-@import "04_object_forms";
-@import "04_object_logo";
-@import "04_object_longForm";
+@import "04_object_grid.scss";
+@import "04_object_forms.scss";
+@import "04_object_logo.scss";
+@import "04_object_longForm.scss";
 
-@import "05_layout";
-@import "05_layout_header";
-@import "05_layout_navigation";
+@import "05_layout.scss";
+@import "05_layout_header.scss";
+@import "05_layout_navigation.scss";
 
-@import "06_component_caption";
-@import "06_component_headerProjectBox";
-@import "06_component_pagePreviewCard";
-@import "06_component_pageTitle";
-@import "06_component_projectBox";
-@import "06_component_projectSubNavigation";
-@import "06_component_search";
-@import "06_component_sidebar";
-@import "06_component_subProjectPageTitle";
+@import "06_component_caption.scss";
+@import "06_component_headerProjectBox.scss";
+@import "06_component_pagePreviewCard.scss";
+@import "06_component_pageTitle.scss";
+@import "06_component_projectBox.scss";
+@import "06_component_projectSubNavigation.scss";
+@import "06_component_search.scss";
+@import "06_component_sidebar.scss";
+@import "06_component_subProjectPageTitle.scss";
 
-@import "08_utilities_display";
+@import "08_utilities_display.scss";
