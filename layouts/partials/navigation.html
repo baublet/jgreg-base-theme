@@ -12,9 +12,8 @@
 		<!-- End: projects code -->
 		<h3 class="navigationCurrentProject">{{ .Site.Params.projectTitle }}</h3>
 		<div class="navigationList">
-	        {{ with .Site.GetPage "templates/navigation.html" }}
-		      {{ .Content }}
-		    {{ end }}
+	        {{ $navigation := $.Site.GetPage "templates/navigation.html" }}
+		    {{ $navigation.Content }}
 		</div>
 		<input type="checkbox" id="navigationOverflow" />
 		<label for="navigationOverflow" class="hide-on-mobile">
@@ -27,9 +26,8 @@
 				<i class="far fa-times-circle"></i>
 			</label>
 			<h3>Navigation</h3>
-			{{ with .Site.GetPage "templates/navigationOverflow.html" }}
-	    		{{ .Content }}
-	    	{{ end }}
+	        {{ $navigationOverflow := $.Site.GetPage "templates/navigationOverflow.html" }}
+		    {{ $navigationOverflow.Content }}
 		</div>
 	</div>
 </div>
