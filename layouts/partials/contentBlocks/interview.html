@@ -1,18 +1,13 @@
-{{ $link := false }}
-
-{{ if .page_link }}
-	{{ $link := .page_link | relURL }}
-{{ else if .url }}
-	{{ $link := .url }}
-{{ end }}
+{{ $interview := $.Scratch.Get "current_interview" }}
+{{ $link := cond (isset $interview "page_link") (relref . $interview.page_link) $interview.url }}
 
 <div class="pagePreviewCard">
 	<b>
 		{{ if $link }}
-			<a href="aaron_dixon.htm">{{ .title }}</a>
+			<a href="{{ $link }}">{{ $interview.title }}</a>
 		{{ else }}
-			{{ .title }}
+			{{ $interview.title }}
 		{{ end }}
 	</b>
-	<p><img src="{{ .image }}">{{ .content }}</p>
+	<p><img src="{{ $interview.image }}">{{ $interview.content }}</p>
 </div>
