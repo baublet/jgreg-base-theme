@@ -16,6 +16,12 @@
 		</div>
 		{{ partial "pageTitle.html" . }}
 		<div class="body contentBlock longForm" id="content">
+			{{ if .Params.sidebar }}
+				{{ $sidebar := .Site.GetPage "page" .Params.sidebar }}
+				<div class="sidebar{{ if $sidebar.Params.wide }} sidebar--wide{{ end }}">
+					{{ $sidebar.Content }}
+				</div>
+			{{ end }}
 			{{ block "main" . }}{{ end }}
 		</div>
 		{{ partial "footer.html" . }}
