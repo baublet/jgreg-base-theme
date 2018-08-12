@@ -18,7 +18,11 @@
 		<div class="body contentBlock longForm" id="content">
 			{{ if .Params.sidebar }}
 				{{ $sidebar := .Site.GetPage "page" .Params.sidebar }}
-				<div class="sidebar{{ if $sidebar.Params.wide }} sidebar--wide{{ end }}">
+				<div class="
+					sidebar
+					{{ if $sidebar.Params.wide }} sidebar--wide{{ end }}
+					{{ if eq $sidebar.Params.type "Subproject List" }} sidebar--subproject-list{{ end }}
+				">
 					{{ $sidebar.Content }}
 				</div>
 			{{ end }}

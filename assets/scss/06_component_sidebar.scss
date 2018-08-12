@@ -108,3 +108,17 @@ $sidebarOffset: 180px;
 		}
 	}
 }
+
+.sidebar--subproject-list {
+	img {
+		float: right;
+		margin-bottom: $spacing-large;
+		margin-left: $spacing-small;
+		max-width: 175px;
+		height: auto;
+	}
+
+	p {
+		clear: both;
+	}
+}
