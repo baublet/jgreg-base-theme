@@ -3,6 +3,9 @@
 		{{ $.Scratch.Set "content_blocks" .Params.content_blocks }}
 		{{ partial "contentBlocks.html" . }}
 	{{ else }}
+		{{ if .Params.youtube_link }}
+			{{ partial "contentBlocks/youtubeVideo.html" .Params.youtube_link }}
+		{{ end }}
 		{{ .Content }}
 	{{ end }}
 {{ end }}
