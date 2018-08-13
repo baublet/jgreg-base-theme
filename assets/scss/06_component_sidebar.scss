@@ -1,10 +1,25 @@
 $sidebarOffset: 180px;
 
+.sidebar h2 {
+	font-weight: normal;
+}
+
+.sidebar h3 {
+	clear: both;
+	a {
+		text-decoration: none;
+	}
+	a:hover,
+	a:focus {
+		text-decoration: underline;
+	}
+}
+
 .sidebar {
 	background: $color-primary;
 	background: linear-gradient(darken($color-primary, 15), darken($color-primary, 20));
 	color: $color-background;
-	padding: 0 $spacing-small $spacing-small;
+	padding: $spacing-normal $spacing-small;
 	box-shadow: 3px 3px 15px rgba($color-foreground, .15);
 	font-family: $font-family-small;
 	font-size: $font-size-smaller;
@@ -13,7 +28,7 @@ $sidebarOffset: 180px;
 	float: right;
 	width: 300px;
 
-	margin-top: calc(-#{$spacing-large} - 1px);
+	margin-top: calc(-#{$spacing-large});
 	margin-right: calc(-#{$sidebarOffset} - #{$spacing-normal});
 	margin-left: $spacing-normal;
 
@@ -59,6 +74,7 @@ $sidebarOffset: 180px;
 		position: relative;
 		transform: 0;
 		margin-right: -#{$spacing-normal};
+		margin-top: 0;
 		max-width: 40vw;
 		background: transparent;
 		color: $color-foreground;
@@ -111,11 +127,14 @@ $sidebarOffset: 180px;
 
 .sidebar--subproject-list {
 	img {
-		float: right;
 		margin-bottom: $spacing-large;
-		margin-left: $spacing-small;
-		max-width: 175px;
+		width: 100%;
 		height: auto;
+		@include onDesktop() {
+			max-width: 175px;
+			margin-left: $spacing-small;
+			float: right;
+		}
 	}
 
 	p {
