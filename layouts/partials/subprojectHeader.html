@@ -13,7 +13,7 @@
 					{{ range $subproject.Params.pages }}
 						{{ if ne $subproject.Params.project_home_page . }}
 							{{ $page := ($.Site.GetPage "page" .) }}
-							<a href="{{ $page.URL | relURL }}">
+							<a href="{{ $page.URL | absURL }}">
 								{{ $page.Title }}
 							</a>
 						{{ end }}

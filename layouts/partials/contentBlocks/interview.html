@@ -1,5 +1,5 @@
 {{ $interview := $.Scratch.Get "current_interview" }}
-{{ $link := cond (isset $interview "page_link") (relref . $interview.page_link) $interview.url }}
+{{ $link := cond (isset $interview "page_link") (ref . $interview.page_link) $interview.url }}
 
 <div class="pagePreviewCard">
 	<b>

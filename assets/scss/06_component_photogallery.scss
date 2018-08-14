@@ -1,0 +1,29 @@
+.photo-gallery {
+    font-family: $font-family-default;
+    h5 {
+        text-transform: none;
+    }
+}
+
+.photo-gallery--link {
+    vertical-align: top;
+    display: inline-block;
+    max-width: 150px;
+    height: auto;
+    margin: 0 $spacing-normal $spacing-normal 0;
+    color: $color-foreground;
+    text-decoration: none;
+    opacity: .75;
+    &:hover,
+    &:focus {
+        opacity: 1;
+        h5 {
+            color: $color-primary;
+        }
+    }
+}
+
+.photo-gallery--caption {
+    clear: both;
+    margin-top: $spacing-small;
+}
