@@ -4,26 +4,26 @@
 {{ $column2Header := $block.column_2_header }}
 {{ $showColumn2 := $block.show_second_column }}
 
-<table class="timeline">
+<table class="timeline-table">
 
     {{ if or $column1Header $column2Header}}
         <thead>
             <tr>
-                <td />
+                <td class="timeline-table--header" />
                 {{ if $column1Header }}
-                    <td class="timeline--header">
+                    <td class="timeline-table--header">
                         {{ $column1Header }}
                     </td>
                 {{ else }}
-                    <td />
+                    <td class="timeline-table--header"> />
                 {{ end }}
                 {{ if $showColumn2 }}
                     {{ if $column2Header }}
-                        <td class="timeline--header">
+                        <td class="timeline-table--header">
                             {{ $column2Header }}
                         </td>
                     {{ else }}
-                        <td />
+                        <td class="timeline-table--header" />
                     {{ end }}
                 {{ end }}
             </tr>
@@ -36,14 +36,14 @@
             <tbody>
                 {{ range $block.dates }}
                     <tr>
-                        <td class="timeline--date">
+                        <td class="timeline-table--date">
                             {{ .date }}
                         </td>
-                        <td class="timeline--col1">
+                        <td class="timeline-table--col1">
                             {{ .column_1 | markdownify }}
                         </td>
                         {{ if $showColumn2 }}
-                            <td class="timeline--col2">
+                            <td class="timeline-table--col2">
                                 {{ .column_2 | markdownify }}
                             </td>
                         {{ end }}

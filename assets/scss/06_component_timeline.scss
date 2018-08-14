@@ -1,0 +1,29 @@
+.timeline-table {
+    margin: $spacing-normal 0;
+    font-family: $font-family-default;
+    font-size: $font-size-small;
+    width: 100%;
+}
+
+.timeline-table--date,
+.timeline-table--col1,
+.timeline-table--col2 {
+    padding: $spacing-small;
+    border-bottom: 1px solid rgba($color-foreground, .15);
+}
+
+.timeline-table--col1,
+.timeline-table--col2 {
+    border-left: 1px solid rgba($color-foreground, .15);
+}
+
+.timeline-table--date {
+    padding-left: 0;
+}
+
+.timeline-table--header {
+    background: rgba($color-foreground, .25);
+    color: $color-background;
+    padding: $spacing-normal;
+    font-weight: bold;
+}
