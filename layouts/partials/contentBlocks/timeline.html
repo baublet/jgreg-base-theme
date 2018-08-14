@@ -1,0 +1,56 @@
+{{ $block := .Scratch.Get "current_block" }}
+{{ $context := . }}
+{{ $column1Header := $block.column_1_header }}
+{{ $column2Header := $block.column_2_header }}
+{{ $showColumn2 := $block.show_second_column }}
+
+<table class="timeline">
+
+    {{ if or $column1Header $column2Header}}
+        <thead>
+            <tr>
+                <td />
+                {{ if $column1Header }}
+                    <td class="timeline--header">
+                        {{ $column1Header }}
+                    </td>
+                {{ else }}
+                    <td />
+                {{ end }}
+                {{ if $showColumn2 }}
+                    {{ if $column2Header }}
+                        <td class="timeline--header">
+                            {{ $column2Header }}
+                        </td>
+                    {{ else }}
+                        <td />
+                    {{ end }}
+                {{ end }}
+            </tr>
+        </thead>
+
+    {{ end }}
+
+    {{ if $block.dates }}
+        {{ if gt (len $block.dates) 0 }}
+            <tbody>
+                {{ range $block.dates }}
+                    <tr>
+                        <td class="timeline--date">
+                            {{ .date }}
+                        </td>
+                        <td class="timeline--col1">
+                            {{ .column_1 | markdownify }}
+                        </td>
+                        {{ if $showColumn2 }}
+                            <td class="timeline--col2">
+                                {{ .column_2 | markdownify }}
+                            </td>
+                        {{ end }}
+                    </tr>
+                {{ end }}
+            </tbody>
+        {{ end }}
+    {{ end }}
+
+</table>
