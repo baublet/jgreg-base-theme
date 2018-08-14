@@ -68,6 +68,10 @@ p {
   margin-top: $spacing-normal;
 }
 
+p:only-child {
+  margin: 0;
+}
+
 a {
   color: $color-primary;
   text-decoration: underline;

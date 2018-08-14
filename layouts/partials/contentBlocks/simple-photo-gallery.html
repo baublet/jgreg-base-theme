@@ -1,0 +1,20 @@
+{{ $block := .Scratch.Get "current_block" }}
+{{ $context := . }}
+
+<div class="photo-gallery">
+    {{ range $block.images }}
+        {{ $imageResource := ($.Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" . ) }}
+        {{ $image := ($imageResource.Fill "150x150").Permalink }}
+        <a href="{{ $imageResource.Permalink | safeURL }}" class="photo-gallery--link">
+            <img src="{{ $image }}" class="photo-gallery--image" />
+        </a>
+    {{ end }}
+</div>
+
+{{ $lightboxAdded := $.Scratch.Get "gallery-requirements-added" }}
+{{ if not $lightboxAdded }}
+    <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/lightgallery.css" />
+    <script src="{{ .Site.BaseURL }}js/vendor/lightgallery.min.js"></script>
+    <script src="{{ .Site.BaseURL }}js/vendor/lg-thumbnail.min.js"></script>
+    {{ $.Scratch.Set "gallery-requirements-added" true }}
+{{ end }}
