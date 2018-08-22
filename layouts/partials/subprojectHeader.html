@@ -6,7 +6,6 @@
 	{{ $subprojectHomePage := (.Site.GetPage "page" $subproject.Params.project_home_page) }}
 
 	{{ if $subprojectHomePage }}
-
 		{{ $subprojectHomeLink := $subprojectHomePage.URL | absURL }}
 
 		<div class="pageTitle pageTitle--subProject">
