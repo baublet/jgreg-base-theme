@@ -30,7 +30,7 @@
 		{{ if ne $subprojectHomePage .Page }}
 			<div class="subProjectPageTitle">
 				<div class="contentBlock">
-					<h1>{{ .Title }} </h1>
+					<h1>{{ cond (isset .Params "canonical_title") .Params.canonical_title .Title }}</h1>
 					{{ if .Params.Subtitle }}
 						<h2>{{ .Params.Subtitle }}</h2>
 					{{ end }}

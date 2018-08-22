@@ -14,15 +14,9 @@
         </div>
     {{ end }}
 
-    {{ if $block.link }}
-        <a href="{{ $block.link }}" class="image-with-caption__image-link">
-    {{ end }}
-
-    <img src="{{ $image | absURL }}" class="image-with-caption__image" />
-
-    {{ if $block.link }}
-        </a>
-    {{ end }}
+    <a href="{{ if $block.link }}{{ $block.link }}{{ else }}{{ $block.image }}{{ end }}" class="image-with-caption__image-link">
+        <img src="{{ $image | absURL }}" class="image-with-caption__image" />
+    </a>
 
     {{ if eq $block.caption_location "Bottom" }}
         <div class="image-with-caption__caption">

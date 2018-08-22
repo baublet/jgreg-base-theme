@@ -1,4 +1,6 @@
 .image-with-caption {
+    font-size: $font-size-small;
+    line-height: 1.2;
     + .image-with-caption {
         margin-top: $spacing-normal;
     }
@@ -9,6 +11,7 @@
 
 .image-with-caption--tile {
     display: inline-block;
+    vertical-align: top;
     @include card();
     @include onDesktop() {
         width: calc(33% - #{$spacing-small * 4});
@@ -18,12 +21,20 @@
 
 .image-with-caption__image-link {
     display: block;
+    opacity: .9;
+    + .image-with-caption__caption {
+        margin-top: $spacing-normal;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+        opacity: 1;
+    }
 }
 
 .image-with-caption__caption {
     font-family: $font-family-default;
-    + .image-with-caption__image,
     + .image-with-caption__image-link {
         margin-top: $spacing-normal;
     }
-}
+} 
