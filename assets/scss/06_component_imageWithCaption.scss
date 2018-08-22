@@ -1,0 +1,29 @@
+.image-with-caption {
+    + .image-with-caption {
+        margin-top: $spacing-normal;
+    }
+    + .image-with-caption__caption {
+        margin-top: $spacing-normal;
+    }
+}
+
+.image-with-caption--tile {
+    display: inline-block;
+    @include card();
+    @include onDesktop() {
+        width: calc(33% - #{$spacing-small * 4});
+        margin: $spacing-small;
+    }
+}
+
+.image-with-caption__image-link {
+    display: block;
+}
+
+.image-with-caption__caption {
+    font-family: $font-family-default;
+    + .image-with-caption__image,
+    + .image-with-caption__image-link {
+        margin-top: $spacing-normal;
+    }
+}

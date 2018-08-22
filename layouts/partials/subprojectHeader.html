@@ -4,33 +4,40 @@
 {{ if $subproject }}
 
 	{{ $subprojectHomePage := (.Site.GetPage "page" $subproject.Params.project_home_page) }}
-	{{ $subprojectHomeLink := $subprojectHomePage.URL | absURL }}
 
-	<div class="pageTitle pageTitle--subProject">
-		<div class="contentBlock">
-			<h1><a href="{{ $subprojectHomeLink }}">{{ $subproject.Title }}</a></h1>
-			{{ if $subproject.Params.pages }}
-				<div class="projectSubNavigation">
-					{{ range $subproject.Params.pages }}
-						{{ $page := cond (isset . "page") ($.Site.GetPage "page" .page) .url }}
-						<a href="{{ $page.URL | absURL }}">
-							{{ cond (isset . "title") .title $page.Title }}
-						</a>
-					{{ end }}
-				</div>
-			{{ end }}
-		</div>
-	</div>
+	{{ if $subprojectHomePage }}
 
-	{{ if ne $subprojectHomePage .Page }}
-		<div class="subProjectPageTitle">
+		{{ $subprojectHomeLink := $subprojectHomePage.URL | absURL }}
+
+		<div class="pageTitle pageTitle--subProject">
 			<div class="contentBlock">
-				<h1>{{ .Title }} </h1>
-				{{ if .Params.Subtitle }}
-					<h2>{{ .Params.Subtitle }}</h2>
+				<h1><a href="{{ $subprojectHomeLink }}">{{ $subproject.Title }}</a></h1>
+				{{ if $subproject.Params.pages }}
+					<div class="projectSubNavigation">
+						{{ range $subproject.Params.pages }}
+							{{ $page := cond (isset . "page") ($.Site.GetPage "page" .page) .url }}
+							{{ if $page }}
+								<a href="{{ $page.URL | absURL }}">
+									{{ cond (isset . "title") .title $page.Title }}
+								</a>
+							{{ end }}
+						{{ end }}
+					</div>
 				{{ end }}
 			</div>
 		</div>
+
+		{{ if ne $subprojectHomePage .Page }}
+			<div class="subProjectPageTitle">
+				<div class="contentBlock">
+					<h1>{{ .Title }} </h1>
+					{{ if .Params.Subtitle }}
+						<h2>{{ .Params.Subtitle }}</h2>
+					{{ end }}
+				</div>
+			</div>
+		{{ end }}
+
 	{{ end }}
 
 {{ end }}

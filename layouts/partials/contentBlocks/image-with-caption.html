@@ -1,0 +1,32 @@
+{{ $block := .Scratch.Get "current_block" }}
+{{ $imageResource := (.Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" $block.image ) }}
+{{ $image := ($imageResource.Fill "350x350 Top").Permalink }}
+
+<div class="image-with-caption
+    {{ if eq $block.alignment "Left" }}float--left image-with-caption--float{{ end }}
+    {{ if eq $block.alignment "Right" }}float--right image-with-caption--float{{ end }}
+    {{ if eq $block.alignment "Tile" }}image-with-caption--tile{{ end }}
+    {{ if eq $block.alignment "Tile" }}image-with-caption--center{{ end }}
+">
+    {{ if eq $block.caption_location "Top" }}
+        <div class="image-with-caption__caption">
+            {{ $block.caption | markdownify }}
+        </div>
+    {{ end }}
+
+    {{ if $block.link }}
+        <a href="{{ $block.link }}" class="image-with-caption__image-link">
+    {{ end }}
+
+    <img src="{{ $image | absURL }}" class="image-with-caption__image" />
+
+    {{ if $block.link }}
+        </a>
+    {{ end }}
+
+    {{ if eq $block.caption_location "Bottom" }}
+        <div class="image-with-caption__caption">
+            {{ $block.caption | markdownify }}
+        </div>
+    {{ end }}
+</div>

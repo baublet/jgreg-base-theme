@@ -28,7 +28,7 @@
 	}
 	@include onDesktop() {
 		display: inline-block;
-		width: 40%;
+		width: 49%;
 		margin-bottom: $spacing-normal;
 		&:nth-child(even) {
 			margin-left: $spacing-small;
