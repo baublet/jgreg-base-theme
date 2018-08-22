@@ -1,7 +1,7 @@
 {{ $subproject := .Site.GetPage "page" ($.Scratch.Get "subproject") }}
 {{ $.Scratch.Set "current_sub_project" $subproject }}
 
-{{ if $subproject }}
+{{ if isset $subproject "Params" }}
 
 	{{ $subprojectHomePage := (.Site.GetPage "page" $subproject.Params.project_home_page) }}
 
