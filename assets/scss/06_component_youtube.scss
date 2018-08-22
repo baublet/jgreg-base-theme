@@ -5,3 +5,12 @@
 	font-size: $font-size-small;
 	opacity: .5;
 }
+
+@include onDesktop() {
+    .youtube--oral-history-wrapper {
+        float: right;
+        margin: 0 0 $spacing-normal $spacing-normal;
+        width: 50vw;
+        max-width: 640px;
+    }
+}

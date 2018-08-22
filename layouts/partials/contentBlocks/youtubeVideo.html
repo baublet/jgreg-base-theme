@@ -10,6 +10,7 @@
 			width="640"
 			height="360"
 			src="https://www.youtube.com/embed?listType=playlist&{{ index $list 0 | safeURL }}"
+			class="youtube__iframe"
 			frameborder="0"></iframe>
 	</div>
 {{ else }}
@@ -21,6 +22,7 @@
 			width="640"
 			height="360"
 			src="https://www.youtube.com/embed/{{ index $video 0 }}"
+			class="youtube__iframe"
 			frameborder="0"></iframe>
 	</div>
 {{ end }}

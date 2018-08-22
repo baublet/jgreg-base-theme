@@ -4,7 +4,9 @@
 		{{ partial "contentBlocks.html" . }}
 	{{ else }}
 		{{ if .Params.youtube_link }}
-			{{ partial "contentBlocks/youtubeVideo.html" .Params.youtube_link }}
+            <div class="youtube--oral-history-wrapper">
+			    {{ partial "contentBlocks/youtubeVideo.html" .Params.youtube_link }}
+            </div>
 		{{ end }}
 		{{ .Content }}
 	{{ end }}
