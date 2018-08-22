@@ -12,7 +12,7 @@
 		<div class="pageTitle pageTitle--subProject">
 			<div class="contentBlock">
 				<h1><a href="{{ $subprojectHomeLink }}">{{ $subproject.Title }}</a></h1>
-				{{ if $subproject.Params.pages }}
+				{{ if isset $subproject.Params "pages" }}
 					<div class="projectSubNavigation">
 						{{ range $subproject.Params.pages }}
 							{{ $page := cond (isset . "page") ($.Site.GetPage "page" .page) .url }}
