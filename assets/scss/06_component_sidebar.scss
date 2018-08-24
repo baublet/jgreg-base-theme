@@ -79,6 +79,7 @@ $sidebarOffset: 180px;
 		background: transparent;
 		color: $color-foreground;
 		box-shadow: none;
+		user-select: auto !important;
 	}
 
 	@include onMobile() {
@@ -126,18 +127,14 @@ $sidebarOffset: 180px;
 }
 
 .sidebar--subproject-list {
-	img {
+	.sidebar--subproject-list__image-link {
 		margin-bottom: $spacing-large;
 		width: 100%;
 		height: auto;
 		@include onDesktop() {
-			max-width: 175px;
+			max-width: 100px;
 			margin-left: $spacing-small;
 			float: right;
 		}
-	}
-
-	p {
-		clear: both;
 	}
 }

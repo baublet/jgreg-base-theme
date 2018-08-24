@@ -4,7 +4,13 @@
 {{ else }}
 	<div class="pageTitle">
 		<div class="contentBlock">
-			<h1>{{ cond (isset .Params "canonical_title") .Params.canonical_title .Title }}</h1>
+			<h1>
+				{{ if (not (isset .Params "canonical_title")) | or (eq .Params.canonical_title "") }}
+					{{ .Title }}
+				{{ else }}
+					{{ .Params.canonical_title }}
+				{{ end }}
+			</h1>
 			{{ if .Params.Subtitle }}
 				<h2>{{ .Params.Subtitle }}</h2>
 			{{ end }}

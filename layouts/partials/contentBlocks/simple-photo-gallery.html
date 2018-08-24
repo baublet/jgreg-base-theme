@@ -4,7 +4,7 @@
 <div class="photo-gallery">
     {{ range $block.images }}
         {{ $imageResource := ($.Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" . ) }}
-        {{ $image := ($imageResource.Fill "150x150").Permalink }}
+        {{ $image := ($imageResource.Fill "100x100").Permalink }}
         <a href="{{ $imageResource.Permalink | safeURL }}" class="photo-gallery--link">
             <img src="{{ $image }}" class="photo-gallery--image" />
         </a>

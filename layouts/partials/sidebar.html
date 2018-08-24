@@ -7,6 +7,9 @@
     		{{ if eq $sidebar.Params.type "Subproject List" }} sidebar--subproject-list{{ end }}
     	">
     		{{ $sidebar.Content }}
+            {{ if eq $sidebar.Params.type "Subproject List" }}
+                {{ partial "sidebarSubprojectList.html" . }}
+            {{ end }}
     	</div>
     {{ end }}
 {{ end }}
