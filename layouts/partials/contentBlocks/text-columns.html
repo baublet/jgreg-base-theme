@@ -1,0 +1,11 @@
+{{ $block := .Scratch.Get "current_block" }}
+
+<div class="columns">
+
+{{ if $block.markdown }}
+    {{ $block.content | safeHTML | markdownify }}
+{{ else }}
+    {{ $block.content | safeHTML }}
+{{ end }}
+
+</div>
