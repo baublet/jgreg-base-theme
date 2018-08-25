@@ -12,11 +12,6 @@
 			margin-top: $spacing-small;
 		}
 	}
-	.author {
-		margin-top: $spacing-large;
-		font-weight: bold;
-		font-size: $font-size-small;
-	}
 	h1 {
 		font-size: $font-size-larger;
 		a {
@@ -32,4 +27,10 @@
 		font-size: $font-size-large;
 		font-weight: normal;
 	}
+}
+
+.author {
+	margin-top: $spacing-large;
+	font-weight: bold;
+	font-size: $font-size-small;
 }

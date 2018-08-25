@@ -1,5 +1,6 @@
 {{ $subproject := .Site.GetPage ($.Scratch.Get "subproject") }}
 {{ $.Scratch.Set "current_subproject" $subproject }}
+{{ $context := . }}
 
 {{ if isset $subproject.Params "project_home_page" }}
 
@@ -17,7 +18,9 @@
 						{{ range $subproject.Params.pages }}
 							{{ $page := cond (isset . "page") ($.Site.GetPage "page" .page) .url }}
 							{{ if $page }}
-								<a href="{{ $page.URL | absURL }}">
+								<a href="{{ $page.URL | absURL }}"
+									class="projectSubNavitation__link{{ if eq $context.Permalink $page.Permalink }} projectSubNavitation__link--current{{ end }}"
+								>
 									{{ cond (isset . "title") .title $page.Title }}
 								</a>
 							{{ end }}
@@ -39,6 +42,9 @@
 					</h1>
 					{{ if .Params.Subtitle }}
 						<h2>{{ .Params.Subtitle }}</h2>
+					{{ end }}
+					{{ if .Params.Author }}
+						<div class="author">by {{ .Params.Author }}</div>
 					{{ end }}
 				</div>
 			</div>

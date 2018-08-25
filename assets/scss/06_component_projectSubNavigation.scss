@@ -15,21 +15,26 @@
     }
 }
 
-.projectSubNavigation a {
-    color: $color-background;
+.projectSubNavitation__link {
+    color: rgba($color-background, .7);
     text-decoration: none;
     display: inline-block;
     background: $color-primary;
     padding: $spacing-small;
     border-radius: 3px;
     text-shadow: none;
-    + a {
+    + .projectSubNavitation__link {
         margin-left: $spacing-small;
     }
     &:hover,
     &:focus,
-    &:active {
-        background: $color-background;
-        color: $color-foreground;
+    &:active,
+    &.projectSubNavitation__link--current {
+        background: lighten(saturate($color-primary, 50%), 15%);
+        color: $color-background;
     }
+}
+
+.projectSubNavitation__link--current {
+    pointer-events: none;
 }
