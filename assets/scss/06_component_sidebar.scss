@@ -23,6 +23,7 @@ $sidebarOffset: 180px;
 	color: $color-foreground;
 	background: $color-background;
 	border-radius: 100%;
+	padding: 1px;
 	@include onDesktop() {
 		display: none;
 	}
@@ -42,7 +43,6 @@ $sidebarOffset: 180px;
 	float: right;
 	width: 300px;
 
-	margin-top: calc(-#{$spacing-large});
 	margin-right: calc(-#{$sidebarOffset} - #{$spacing-normal});
 	margin-left: $spacing-normal;
 
