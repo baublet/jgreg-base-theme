@@ -25,13 +25,20 @@ if (sidebar) {
 
 	hammerSidebar.on("tap", function(ev) {
 		if (!sidebar.classList) return;
+		if (sidebar.classList.contains("shown")) {
+			if (ev.target.href) {
+				return;
+			}
+			sidebar.classList.remove("shown");
+			return;
+		}
 		sidebar.classList.add("shown");
 	});
 }
 
 // Initialize galleries if we have any
 var galleries = document.querySelectorAll(".photo-gallery");
-if (galleries && lightGallery) {
+if (galleries && typeof lightGallery !== "undefined") {
 	forEach(galleries, function(gallery) {
 		lightGallery(gallery);
 	});
