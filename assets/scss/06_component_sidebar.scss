@@ -15,9 +15,23 @@ $sidebarOffset: 180px;
 	}
 }
 
+.sidebar__drag-indicator {
+	position: absolute;
+	top: -10px;
+	left: -10px;
+	font-size: $font-size-larger;
+	color: $color-foreground;
+	background: $color-background;
+	border-radius: 100%;
+	@include onDesktop() {
+		display: none;
+	}
+	.shown & {
+		transform: rotate(180deg) translateX(20px) scale(2, 2);
+	}
+}
+
 .sidebar {
-	background: $color-primary;
-	background: linear-gradient(darken($color-primary, 15), darken($color-primary, 20));
 	color: $color-background;
 	padding: $spacing-normal $spacing-small;
 	box-shadow: 3px 3px 15px rgba($color-foreground, .15);
@@ -33,11 +47,9 @@ $sidebarOffset: 180px;
 	margin-left: $spacing-normal;
 
 	transition: all 1s $animation-easing-function;
+	position: relative;
 
-	overflow: hidden;
 	border-radius: 3px;
-	border-top-left-radius: 0;
-	border-top-right-radius: 0;
 
 	.centerCaption + & {
 		padding-top: $spacing-small;
@@ -46,6 +58,7 @@ $sidebarOffset: 180px;
 	}
 
 	@include onMobile() {
+		background: rgba($color-foreground, .2);
 		img {
 			width: 100%;
 			height: auto;
@@ -55,6 +68,7 @@ $sidebarOffset: 180px;
 		}
 		&.shown {
 			transform: translateX(-$sidebarOffset);
+			background: $color-foreground;
 			* {
 				pointer-events: auto;
 			}
@@ -69,6 +83,14 @@ $sidebarOffset: 180px;
 		border-radius: 3px;
 	}
 
+	hr {
+		margin: $spacing-normal 0;
+		border-color: rgba($color-background, .15);
+		@include onDesktop() {
+			border-color: rgba($color-foreground, .15);
+		}
+	}
+
 	@include onDesktop() {
 		padding: $spacing-normal;
 		position: relative;
@@ -79,7 +101,6 @@ $sidebarOffset: 180px;
 		background: transparent;
 		color: $color-foreground;
 		box-shadow: none;
-		user-select: auto !important;
 	}
 
 	@include onMobile() {

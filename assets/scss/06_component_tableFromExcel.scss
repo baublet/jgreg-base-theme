@@ -1,0 +1,23 @@
+.table-from-excel {
+    font-family: $font-family-default;
+    font-size: $font-size-small;
+    width: 100%;
+    overflow-x: scroll;
+    @include onDesktop() {
+        overflow: auto;
+    }
+}
+
+.table-from-excel table {
+    min-width: 500px;
+    td {
+        padding: $spacing-small;
+        border-bottom: 1px solid rgba($color-foreground, .25);
+    }
+    tbody tr:first-child td {
+        font-weight: bold;
+        text-transform: uppercase;
+        background: rgba($color-foreground, .5);
+        color: $color-background;
+    }
+}
