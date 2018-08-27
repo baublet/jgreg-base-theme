@@ -1,6 +1,6 @@
 .navigation {
 	width: 100%;
-	margin: $spacing-small 0;
+	margin: 0;
 	background: $color-background;
 	position: absolute;
 	top: 100%;
@@ -72,10 +72,6 @@
 
 	.navigation h3 {
 		margin-bottom: $spacing-normal;
-	}
-
-	.navigation {
-		padding: $spacing-small 0;
 	}
 
 	.navigationList {

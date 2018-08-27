@@ -1,9 +1,18 @@
+.logo {
+	height: 150px;
+	overflow: hidden;
+	position: relative;
+}
+
 .logoH1 {
 	font-size: $font-size-normal;
 	line-height: 1;
 	text-transform: uppercase;
 	display: inline-block;
-	width: $logo-width;
+	width: 100%;
+	@include onDesktop() {
+		width: $logo-width;
+	}
 }
 
 .logoLink {

@@ -1,6 +1,11 @@
 .header {
 	z-index: $layer-header;
 	position: relative;
+	@include onMobile() {
+		.contentBlock {
+			padding: 0;
+		}
+	}
 }
 
 @include onMobile() {
@@ -15,6 +20,10 @@
 }
 
 @include onDesktop() {
+	.header {
+		padding-top: $spacing-normal;
+  		padding-bottom: $spacing-normal;
+	}
 	.logo {
 		position: absolute;
 		top: 50%;
@@ -33,4 +42,15 @@
 	    flex-direction: column;
 	    flex-wrap: nowrap;
     }
+}
+
+@include onMobile() {
+	.header {
+		position: relative;
+	}
+	.search--top {
+		position: absolute;
+		top: $spacing-normal;
+		right: $spacing-normal;
+	}
 }

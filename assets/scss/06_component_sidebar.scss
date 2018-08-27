@@ -17,6 +17,7 @@ $sidebarOffset: 180px;
 
 .sidebar__drag-indicator {
 	position: absolute;
+	z-index: 20;
 	top: -10px;
 	left: -10px;
 	font-size: $font-size-larger;
@@ -24,6 +25,7 @@ $sidebarOffset: 180px;
 	background: $color-background;
 	border-radius: 100%;
 	padding: 1px;
+	transform: translateX(0);
 	@include onDesktop() {
 		display: none;
 	}
@@ -62,6 +64,7 @@ $sidebarOffset: 180px;
 		img {
 			width: 100%;
 			height: auto;
+			opacity: .2;
 		}
 		* {
 			pointer-events: none;
@@ -71,6 +74,9 @@ $sidebarOffset: 180px;
 			background: $color-foreground;
 			* {
 				pointer-events: auto;
+			}
+			img {
+				opacity: 1;
 			}
 		}
 	}
@@ -115,6 +121,7 @@ $sidebarOffset: 180px;
 			}
 		}
 		&:after {
+			z-index: 10;
 			display: block;
 			content: "";
 			width: 1px;
