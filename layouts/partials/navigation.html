@@ -1,15 +1,11 @@
 <div class="navigation">
-	<input type="checkbox" id="navigationToggleCheck" />
-	<label for="navigationToggleCheck" id="navigationToggleLabel">
+	<input type="checkbox" id="navigationToggleCheck" class="navigationToggleInput" />
+	<label for="navigationToggleCheck" id="navigationToggleLabel" class="navigationToggleLabel">
 		<span>Navigation</span>
 		<i class="fas fa-bars"></i>
+		<i class="fas fa-times-circle"></i>
 	</label>
 	<div class="navigationItems">
-		<!-- Do not modify this: projects code -->
-		<div class="navigationOtherProjects" id="projects" data-on-click-toggle-class="on">
-		    <div class="navigationOtherProjectsList" id="navigationProjectsList"></div>
-		</div>
-		<!-- End: projects code -->
 		<h3 class="navigationCurrentProject">{{ .Site.Params.projectTitle }}</h3>
 		<div class="navigationList">
 	        {{ $navigation := $.Site.GetPage "page" "templates/navigation.html" }}

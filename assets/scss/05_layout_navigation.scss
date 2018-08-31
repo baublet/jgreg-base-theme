@@ -1,52 +1,35 @@
 .navigation {
 	width: 100%;
 	margin: 0;
-	background: $color-background;
-	position: absolute;
-	top: 100%;
-	left: 0;
-	right: 0;
-    box-shadow: 0 3px 5px -3px rgba($color-foreground, .5);
     font-family: $font-family-small;
-	@include onDesktop() {
-		box-shadow: none;
-		position: static;
-		margin: $spacing-small 0 0 $spacing-normal;
-		text-align: right;
-		overflow: hidden;
-		overflow-x: auto;
-		max-width: calc(100% - #{$spacing-normal} - #{$logo-width});
-	}
 }
 
-.navigation label span + i {
+.navigationToggleLabel span + i {
 	margin-left: $spacing-small;
 	font-size: 1.2em;
 	opacity: .5;
 }
-.navigation label:hover span + i {
+
+.navigationToggleLabel:hover span + i {
 	opacity: 1;
 }
 
-.navigation input {
+.navigationToggleInput {
 	display: none;
 }
 
-.navigation label {
+.navigationToggleLabel {
 	position: absolute;
 	right: $spacing-normal;
-	top: 100%;
+	top: 10.5rem;
 	text-transform: uppercase;
 	font-size: $font-size-smaller;
 	font-weight: bold;
 	padding: $spacing-small $spacing-normal;
-	color: rgba($color-foreground, .75);
+	color: $color-background;
+	background: $color-foreground;
 	cursor: pointer;
-	background: $color-background;
-	background: linear-gradient($color-background, darken(desaturate($color-background, 50), 15));
-	border-radius: 3px;
-	border-top-left-radius: 0;
-	border-top-right-radius: 0;
+	border-radius: 5px;
 	box-shadow: 3px 3px 5px -3px rgba($color-foreground, .5);
 	border: 1px solid rgba($color-foreground, .15);
 	border-top: 0;
@@ -54,60 +37,83 @@
 	display: flex;
     align-items: center;
 
-    &:hover,
-    &:focus,
-    &:active {
-    	color: $color-foreground;
+    transition: all .15s ease-in-out;
+
+    .fa-times-circle {
+    	position: absolute;
+    	right: $spacing-normal;
+    	top: 50%;
+		opacity: 0;
+		pointer-events: none;
+		transform: translate(-10rem, -50%);
+		transition: .24s all ease-in-out;
+	}
+
+    .navigationToggleInput:checked + & {
+    	position: fixed;
+    	transform: translateY(-10rem);
+    	left: 1rem;
+    	.fa-times-circle {
+			opacity: 1;
+			pointer-events: auto;
+			transform: translate(0, -50%);
+		}
     }
 }
 
-@include onMobile() {
+.navigationList a:active,
+.navigationList a:focus,
+.navigationList a:active {
+	background: $color-primary;
+	color: $color-background;
+}
 
-	.navigationList a:active,
-	.navigationList a:focus,
-	.navigationList a:active {
-		background: $color-primary;
-		color: $color-background;
-	}
+.navigation h3 {
+	margin-bottom: $spacing-normal;
+}
 
-	.navigation h3 {
-		margin-bottom: $spacing-normal;
-	}
+.navigationList {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
 
-	.navigationList {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
+.navigationList a {
+	padding: $spacing-small 0;
+	width: calc(50% - 4px);
+	text-align: center;
+	border: 1px solid rgba($color-foreground, .15);
+	border-radius: 3px;
+	margin: 2px;
+}
 
-	.navigationList a {
-		padding: $spacing-small 0;
-		width: calc(50% - 4px);
-		text-align: center;
-		border: 1px solid rgba($color-foreground, .15);
-		border-radius: 3px;
-		margin: 2px;
-	}
+.navigationItems {
+	margin: 0;
+	opacity: 0;
+	position: fixed;
 
-	.navigationItems {
-		margin: 0;
-		opacity: 0;
-		position: absolute;
-		pointer-events: none;
-		padding: 0 $spacing-normal;
-		max-height: 70vh;
-		overflow-y: auto;
-	}
+	top: 3rem;
+	right: 1rem;
+	bottom: 1rem;
+	left: 1rem;
 
-	.navigation input:checked ~ .navigationItems {
-		opacity: 1;
-		position: relative;
-		pointer-events: auto;
-	}
+	padding: $spacing-normal;
 
-	.navigationOverflow {
-		margin-top: $spacing-normal;
-	}
+	background: $color-background;
+	border-radius: 5px;
+	box-shadow: 3px 3px 5px -3px rgba($color-foreground, .5);
+
+	pointer-events: none;
+	overflow-y: auto;
+}
+
+.navigationToggleInput:checked ~ .navigationItems {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.navigationOverflow {
+	margin-top: $spacing-normal;
 }
 
 .navigationList {
@@ -133,102 +139,6 @@
 		.fas {
 			opacity: .25;
 		}
-	}
-	@include onDesktop() {
-		position: relative;
-		display: inline-block;
-		padding: 0 0 $spacing-small;
-		margin: $spacing-smaller;
-		&:after {
-			display: block;
-			content: "";
-			position: absolute;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			height: 2px;
-			background: $color-primary;
-			opacity: 0;
-			transform: translateY(15px);
-			transition: all .15s ease-in-out;
-		}
-	}
-}
-
-@include onDesktop() {
-	.navigationList {
-		padding: $spacing-large 0;
-	}
-	#navigationToggleLabel {
-		display: none;
-	}
-
-	.navigation a {
-		max-height: none;
-		opacity: 1;
-	}
-	.navigation a:hover:after,
-	.navigation a:focus:after,
-	.navigation a:active:after {
-		opacity: 1;
-		transform: translateY(0);
-		border: transparent;
-	}
-	.navigation h3 {
-		display: none;
-	}
-	.navigationOverflow {
-		font-family: $font-family-small;
-		font-size: $font-size-small;
-		background: $color-background;
-		position: absolute;
-		top: 100%;
-		right: 0;
-		left: 0;
-		text-align: left;
-		box-shadow: 0 3px 10px -5px rgba($color-foreground, .5);
-		padding: 0 $spacing-normal $spacing-normal;
-	}
-	.navigationOverflow a {
-		text-decoration: none;
-		&:hover,
-		&:focus,
-		&:active {
-			text-decoration: underline;
-		}
-	}
-	.navigationOverflow ul,
-	.navigationOverflow ol {
-		padding-left: 0;
-		margin-left: 0;
-		list-style-type: none;
-		display: flex;
-		flex-wrap: wrap;
-	}
-	.navigationOverflow li {
-		width: 25%;
-		padding-left: 1rem;
-    	text-indent: -.35rem;
-	}
-	.navigationOverflow li a:before {
-		display: inline-block;
-		content: "\00BB";
-		font-weight: bold;
-		font-size: $font-size-small;
-		margin-right: $spacing-smaller;
-		color: rgba($color-foreground, .5);
-	}
-	#navigationOverflow ~ .navigationOverflow {
-		opacity: 0;
-		pointer-events: none;
-	}
-
-	#navigationOverflow:checked ~ .navigationOverflow {
-		opacity: 1;
-		pointer-events: auto;
-	}
-	#navigationOverflow:checked ~ label {
-		display: none;
 	}
 }
 

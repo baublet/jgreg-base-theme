@@ -10,7 +10,7 @@ var forEach = function(array, callback, scope) {
 // Sidebar swiping
 var sidebar = document.querySelector(".sidebar");
 
-if (sidebar) {
+if (sidebar && Hammer) {
 	var hammerSidebar = new Hammer(sidebar);
 
 	hammerSidebar.on("swiperight", function(ev) {

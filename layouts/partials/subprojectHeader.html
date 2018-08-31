@@ -19,7 +19,7 @@
 							{{ $page := cond (isset . "page") ($.Site.GetPage "page" .page) .url }}
 							{{ if $page }}
 								<a href="{{ $page.URL | absURL }}"
-									class="projectSubNavitation__link{{ if eq $context.Permalink $page.Permalink }} projectSubNavitation__link--current{{ end }}"
+									class="projectSubNavigation__link{{ if eq $context.Permalink $page.Permalink }} projectSubNavitation__link--current{{ end }}"
 								>
 									{{ cond (isset . "title") .title $page.Title }}
 								</a>

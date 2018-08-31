@@ -15,7 +15,7 @@
     }
 }
 
-.projectSubNavitation__link {
+.projectSubNavigation__link {
     color: rgba($color-background, .7);
     text-decoration: none;
     display: inline-block;
@@ -23,18 +23,18 @@
     padding: $spacing-small;
     border-radius: 3px;
     text-shadow: none;
-    + .projectSubNavitation__link {
+    + .projectSubNavigation__link {
         margin-left: $spacing-small;
     }
     &:hover,
     &:focus,
     &:active,
-    &.projectSubNavitation__link--current {
+    &.projectSubNavigaion__link--current {
         background: lighten(saturate($color-primary, 50%), 15%);
         color: $color-background;
     }
 }
 
-.projectSubNavitation__link--current {
+.projectSubNavigation__link--current {
     pointer-events: none;
 }

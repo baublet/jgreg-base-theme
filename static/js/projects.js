@@ -90,16 +90,6 @@ projectsListContainer.parentNode.insertBefore(
     projectsListContainer
 );
 
-// Moving projects from the nav to across the top and
-// navigation overflow to the left side on desktop
-
-var isDesktop = window.outerWidth > 800,
-	projects = document.getElementById("projects")
-
-if(isDesktop) {
-	document.body.insertBefore(projects, document.body.firstChild)
-}
-
 // On Click CSS Class Toggles
 
 var clickToggles = document.querySelectorAll("[data-on-click-toggle-class]"),
