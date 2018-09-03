@@ -19,7 +19,6 @@ body:after {
 	&:after {
 		z-index: $layer-header - 100;
 		opacity: 1;
-		transition: opacity .5s ease-in-out;
 	}
 }
 
@@ -27,6 +26,9 @@ body:after {
 	width: 100%;
 	margin: 0;
     font-family: $font-family-small;
+    @include onDesktop() {
+    	width: auto;
+    }
 }
 
 .navigationToggleLabel span + i {
@@ -43,21 +45,23 @@ body:after {
 	display: none;
 }
 
-.navigationToggleLabel {
-	position: absolute;
-	right: $spacing-normal;
-	top: 10.5rem;
+.navigationToggleLabel,
+.navigationOverflowLabel {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
 	text-transform: uppercase;
 	font-size: $font-size-smaller;
 	font-weight: bold;
 	padding: $spacing-small $spacing-normal;
 	color: $color-background;
-	background: $color-foreground;
+	background: $color-primary;
 	cursor: pointer;
-	border-radius: 5px;
 	box-shadow: 3px 3px 5px -3px rgba($color-foreground, .5);
 	border: 1px solid rgba($color-foreground, .15);
 	border-top: 0;
+	opacity: .9;
 
 	display: flex;
     align-items: center;
@@ -75,14 +79,17 @@ body:after {
 	}
 
     .navigationToggleInput:checked + & {
-    	position: fixed;
-    	transform: translateY(-10rem);
-    	left: 1rem;
+    	background: $color-foreground;
+    	opacity: 1;
     	.fa-times-circle {
 			opacity: 1;
 			pointer-events: auto;
 			transform: translate(0, -50%);
 		}
+    }
+
+    @include onDesktop() {
+    	display: none;
     }
 }
 
@@ -109,44 +116,34 @@ body:after {
 	text-align: center;
 	border: 1px solid rgba($color-foreground, .15);
 	border-radius: 3px;
-	margin: 2px;
-}
-
-.navigationItems {
-	margin: 0;
-	opacity: 0;
-	position: fixed;
-
-	top: 3rem;
-	right: 1rem;
-	bottom: 1rem;
-	left: 1rem;
-
-	padding: $spacing-normal;
-
-	background: $color-background;
-	border-radius: 5px;
-	box-shadow: 3px 3px 5px -3px rgba($color-foreground, .5);
-
-	pointer-events: none;
-	overflow-y: auto;
-}
-
-.navigationToggleInput:checked ~ .navigationItems {
-	opacity: 1;
-	pointer-events: auto;
-}
-
-.navigationOverflow {
-	margin-top: $spacing-normal;
-}
-
-.navigationList {
-	white-space: nowrap;
+	display: block;
+	text-decoration: none;
+	font-weight: bold;
+	color: $color-foreground;
+	.fas {
+		display: block;
+		font-size: $font-size-large;
+		margin-bottom: $spacing-small;
+		opacity: .15;
+	}
+	&:hover,
+	&:active,
+	&:focus {
+		.fas {
+			opacity: .25;
+		}
+	}
+	@include onDesktop() {
+		width: auto;
+		border: 0;
+		+ a {
+			margin-left: $spacing-normal;
+		}
+	}
 }
 
 .navigationList a {
-	font-size: $font-size-small;
+	font-size: $font-size-smaller;
 	display: block;
 	text-decoration: none;
 	font-weight: bold;
@@ -167,6 +164,50 @@ body:after {
 	}
 }
 
+.navigationItems {
+	margin: 0;
+	opacity: 0;
+	position: fixed;
+
+	top: 3rem;
+	right: 1rem;
+	bottom: 1rem;
+	left: 1rem;
+
+	padding: $spacing-normal;
+
+	background: $color-background;
+	border-radius: 5px;
+	box-shadow: 3px 3px 5px -3px rgba($color-foreground, .5);
+
+	pointer-events: none;
+	overflow-y: auto;
+
+	@include onDesktop() {
+		position: static;
+		opacity: 1;
+		pointer-events: auto;
+		box-shadow: none;
+		padding: 0;
+	}
+}
+
+.navigationToggleInput:checked ~ .navigationItems {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.navigationOverflow {
+	margin-top: $spacing-normal;
+	@include onDesktop() {
+		display: none;
+	}
+}
+
+.navigationList {
+	white-space: nowrap;
+}
+
 .navigationCurrentProject:before {
 	font-size: $font-size-smaller;
 	color: rgba($color-foreground, .33);
@@ -175,6 +216,12 @@ body:after {
 	content: "Current Project";
 	pointer-events: none;
 	margin-bottom: $spacing-small;
+}
+
+.navigationCurrentProject {
+	@include onDesktop() {
+		display: none;
+	}
 }
 
 .navigationOverflow h4 {
@@ -190,4 +237,15 @@ body:after {
 	border-top: 1px solid rgba($color-foreground, .15);
 	margin: $spacing-large auto;
 	max-width: 90%;
+}
+
+.navigationOverflowLabel {
+	display: block;
+	position: absolute;
+	top: auto;
+	right: 0;
+	bottom: -2rem;
+	left: auto;
+	opacity: 1;
+	background: lighten(saturate($color-primary, 50%), 15%);
 }

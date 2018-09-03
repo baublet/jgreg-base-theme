@@ -1,6 +1,5 @@
-<div class="navigationOverlay"></div>
 <div class="navigation">
-	<input type="checkbox" id="navigationToggleCheck" class="navigationToggleInput" />
+	<input type="checkbox" id="navigationToggleCheck" class="navigationToggleInput screenReaderText" />
 	<label for="navigationToggleCheck" id="navigationToggleLabel" class="navigationToggleLabel">
 		<span>Navigation</span>
 		<i class="fas fa-bars"></i>
@@ -12,17 +11,13 @@
 	        {{ $navigation := $.Site.GetPage "page" "templates/navigation.html" }}
 		    {{ $navigation.Content | safeHTML }}
 		</div>
-		<input type="checkbox" id="navigationOverflow" class="hide-on-mobile" />
-		<label for="navigationOverflow" class="hide-on-mobile">
+		<input type="checkbox" id="navigationOverflow" class="navigationOverflowCheck screenReaderText" />
+		<label for="navigationOverflow" class="hideOnMobile navigationOverflowLabel">
 			<span>Explore the Project</span>
 			<i class="fas fa-bars"></i>
 		</label>
 		<div class="navigationOverflow" id="navigationOverflow">
-			<label for="navigationOverflow" class="hide-on-mobile">
-				<span>Close</span>
-				<i class="far fa-times-circle"></i>
-			</label>
-			<h3 class="hide-on-mobile">Navigation</h3>
+			<h3 class="hideOnMobile">Navigation</h3>
 	        {{ $navigationOverflow := $.Site.GetPage "page" "templates/navigationOverflow.html" }}
 		    {{ $navigationOverflow.Content }}
 		</div>

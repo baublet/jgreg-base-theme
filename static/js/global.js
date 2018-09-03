@@ -42,10 +42,13 @@ if (navigationToggleCheck) {
 	const bodyClasses = document.body.className
 	navigationToggleCheck.addEventListener("change", event => {
 		if (event.target.checked) {
+			// Retain scroll position
+			document.prevScrollPosition = window.pageYOffset
 			document.body.className = bodyClasses + " navOpen"
 			return
 		}
 		document.body.className = bodyClasses
+		window.scrollTo(0, document.prevScrollPosition)
 	})
 }
 

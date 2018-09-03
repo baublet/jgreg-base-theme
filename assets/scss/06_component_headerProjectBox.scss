@@ -2,6 +2,9 @@
 	border-bottom: 1px solid rgba($color-foreground, .15);
 	width: 100%;
 	font-family: $font-family-small;
+	@include onMobile() {
+		margin-top: $spacing-larger;
+	}
 }
 
 .navigationOtherProjectsList {
@@ -25,6 +28,8 @@
 	margin: 0 auto;
 	font-size: $font-size-smaller;
 	text-transform: uppercase;
+	cursor: pointer;
+	user-select: none;
 }
 .navigationOtherProjects .navigationOtherProjectsList {
 	max-height: 0;

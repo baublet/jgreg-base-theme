@@ -18,38 +18,18 @@
 	position: relative;
 }
 
-@include onDesktop() {
-	.header {
-		padding-top: $spacing-normal;
-  		padding-bottom: $spacing-normal;
-	}
-	.logo {
-		position: absolute;
-		top: 50%;
-		left: $spacing-normal;
-		transform: translateY(-50%);
-	}
-}
-
 .header .contentBlock {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	@include onDesktop() {
-		justify-content: flex-end;
-	    align-items: flex-end;
-	    flex-direction: column;
-	    flex-wrap: nowrap;
-    }
+		justify-content: space-between;
+		align-items: center;
+	}
 }
 
 @include onMobile() {
 	.header {
 		position: relative;
-	}
-	.search--top {
-		position: absolute;
-		top: $spacing-normal;
-		right: $spacing-normal;
 	}
 }
