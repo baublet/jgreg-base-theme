@@ -35,6 +35,20 @@
 	display: none;
 }
 
+.logoTextContainer {
+	position: absolute;
+	bottom: $spacing-normal;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 75vw;
+	padding: $spacing-normal;
+}
+
+.logoText {
+	width: 100%;
+	height: auto;
+}
+
 @include onDesktop() {
 	.logoDesktop {
 		display: block;

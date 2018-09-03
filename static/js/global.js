@@ -1,14 +1,14 @@
 // Tools
 
 // forEach method to loop through anything
-var forEach = function(array, callback, scope) {
+const forEach = function(array, callback, scope) {
 	for (var i = 0; i < array.length; i++) {
 		callback.call(scope, array[i], i);
 	}
 };
 
 // Sidebar swiping
-var sidebar = document.querySelector(".sidebar");
+const sidebar = document.querySelector(".sidebar");
 
 if (sidebar && Hammer) {
 	var hammerSidebar = new Hammer(sidebar);
@@ -36,8 +36,21 @@ if (sidebar && Hammer) {
 	});
 }
 
+// Navigation overlay
+const navigationToggleCheck = document.getElementById("navigationToggleCheck")
+if (navigationToggleCheck) {
+	const bodyClasses = document.body.className
+	navigationToggleCheck.addEventListener("change", event => {
+		if (event.target.checked) {
+			document.body.className = bodyClasses + " navOpen"
+			return
+		}
+		document.body.className = bodyClasses
+	})
+}
+
 // Initialize galleries if we have any
-var galleries = document.querySelectorAll(".photo-gallery");
+const galleries = document.querySelectorAll(".photo-gallery");
 if (galleries && typeof lightGallery !== "undefined") {
 	forEach(galleries, function(gallery) {
 		lightGallery(gallery);
