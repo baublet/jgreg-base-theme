@@ -3,7 +3,7 @@
 	<head>
 		{{ partial "head.html" . }}
 	</head>
-	<body>
+	<body class="{{ if eq (relURL .URL) ("/" | safeHTML) }}home{{ end }}">
 		<a href="#content" class="screen-reader-text">Skip to content</a>
 		<!-- Do not modify this: projects code -->
 		<div class="navigationOtherProjects" id="projects" data-on-click-toggle-class="on">
@@ -15,11 +15,14 @@
 				<div class="logo">
 					{{ block "logo" . }}{{ partial "logo.html" . }}{{ end }}
 				</div>
-				{{ partial "searchTop.html" . }}
 				{{ partial "navigation.html" . }}
 			</div>
 		</div>
-		{{ partial "pageTitle.html" . }}
+		{{ if ne (relURL .URL) ("/" | safeHTML) }}
+			{{ partial "pageTitle.html" . }}
+		{{ else }}
+			{{ partial "homeBanner.html" . }}
+		{{ end }}
 		<div class="body contentBlock longForm" id="content">
 			{{ partial "sidebar.html" . }}
 			{{ block "main" . }}{{ end }}

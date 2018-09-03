@@ -65,6 +65,7 @@ body:after {
 
 	display: flex;
     align-items: center;
+    justify-content: center;
 
     transition: all .15s ease-in-out;
 
@@ -293,7 +294,7 @@ body:after {
 	bottom: auto;
 	left: auto;
 	opacity: .75;
-	background: lighten(saturate($color-primary, 50%), 15%);
+	background: $color-primary-light;
 	z-index: 1;
 	&:hover {
 		opacity: 1;

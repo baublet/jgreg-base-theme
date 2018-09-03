@@ -1,8 +1,5 @@
 .logo {
-	height: 180px;
-	overflow: hidden;
-	position: relative;
-	min-height: 25vh;
+	margin: 0 auto;
 	.navOpen & {
 		visibility: hidden;
 	}
@@ -12,6 +9,7 @@
 		overflow: hidden;
 		min-height: 0;
 	    line-height: 1;
+	    margin: 0;
 	}
 }
 
@@ -47,18 +45,17 @@
 }
 
 .logoTextContainer {
-	position: absolute;
-	bottom: $spacing-normal;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 75vw;
 	padding: $spacing-normal;
+	max-width: 250px;
 	@include onDesktop() {
-		background: rgba($color-primary, .75);
 		padding: $spacing-small;
 		transform: none;
 		width: auto;
 		position: static;
+		opacity: .8;
+		&:hover {
+			opacity: 1;
+		}
 	}
 }
 

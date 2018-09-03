@@ -1,3 +1,5 @@
+$color-primary-light: lighten(saturate($color-primary, 50%), 15%);
+
 @mixin onDesktop() {
   @media screen and (min-width: $mobile-breakpoint) {
     @content;
