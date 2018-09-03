@@ -93,6 +93,16 @@ body:after {
     }
 }
 
+.navigationToggleLabel .fa-times-circle {
+	position: absolute;
+	right: $spacing-normal;
+	top: 50%;
+	opacity: 0;
+	pointer-events: none;
+	transform: translate(-10rem, -50%);
+	transition: .24s all ease-in-out;
+}
+
 .navigationList a:active,
 .navigationList a:focus,
 .navigationList a:active {
@@ -200,7 +210,43 @@ body:after {
 .navigationOverflow {
 	margin-top: $spacing-normal;
 	@include onDesktop() {
+		font-size: $font-size-small;
+		position: absolute;
+		right: 10px;
+		left: 10px;
+		top: 100%;
+		background: $color-background;
+		padding: $spacing-normal;
+		box-shadow: 0 0 0 10px rgba($color-foreground, .25);
 		display: none;
+		.navigationOverflowCheck:checked ~ & {
+			display: block;
+		}
+	}
+}
+
+@include onDesktop() {
+	.navigationOverflow ul {
+		columns: 3;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		li {
+			padding: $spacing-small;
+			line-height: 1.1;
+			position: relative;
+			padding-left: $spacing-normal;
+			&:before {
+				content: "\25AA";
+				opacity: .25;
+				position: absolute;
+				left: 0;
+				top: .5em;
+			}
+			&:hover:before {
+				opacity: .75;
+			}
+		}
 	}
 }
 
@@ -242,10 +288,35 @@ body:after {
 .navigationOverflowLabel {
 	display: block;
 	position: absolute;
-	top: auto;
-	right: 0;
-	bottom: -2rem;
+	top: calc(100% + 10px);
+	right: 15px;
+	bottom: auto;
 	left: auto;
-	opacity: 1;
+	opacity: .75;
 	background: lighten(saturate($color-primary, 50%), 15%);
+	z-index: 1;
+	&:hover {
+		opacity: 1;
+	}
+	.fas {
+		opacity: .5;
+		font-size: $font-size-normal;
+		margin-left: $spacing-smaller;
+		vertical-align: middle;
+	}
+	.navigationOverflowLabel__off {
+		display: block;
+	}
+	.navigationOverflowLabel__on {
+		display: none;
+	}
+	.navigationOverflowCheck:checked + & {
+		opacity: 1;
+		.navigationOverflowLabel__off {
+			display: none;
+		}
+		.navigationOverflowLabel__on {
+			display: block;
+		}
+	}
 }

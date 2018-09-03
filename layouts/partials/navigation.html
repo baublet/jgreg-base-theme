@@ -13,11 +13,16 @@
 		</div>
 		<input type="checkbox" id="navigationOverflow" class="navigationOverflowCheck screenReaderText" />
 		<label for="navigationOverflow" class="hideOnMobile navigationOverflowLabel">
-			<span>Explore the Project</span>
-			<i class="fas fa-bars"></i>
+			<span class="navigationOverflowLabel__off">
+				<span>Explore the Project</span>
+				<i class="fas fa-bars"></i>
+			</span>
+			<span class="navigationOverflowLabel__on">
+				<span>Close Navigation</span>
+				<i class="fas fa-times"></i>
+			</span>
 		</label>
 		<div class="navigationOverflow" id="navigationOverflow">
-			<h3 class="hideOnMobile">Navigation</h3>
 	        {{ $navigationOverflow := $.Site.GetPage "page" "templates/navigationOverflow.html" }}
 		    {{ $navigationOverflow.Content }}
 		</div>
