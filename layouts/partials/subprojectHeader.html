@@ -16,13 +16,22 @@
 				{{ if isset $subproject.Params "pages" }}
 					<div class="projectSubNavigation">
 						{{ range $subproject.Params.pages }}
-							{{ $page := cond (isset . "page") ($.Site.GetPage "page" .page) .url }}
-							{{ if $page }}
-								<a href="{{ $page.URL | absURL }}"
-									class="projectSubNavigation__link{{ if eq $context.Permalink $page.Permalink }} projectSubNavigation__link--current{{ end }}"
+							{{ if (not (isset . "page")) | or (eq .page "") }}
+								<a href="{{ .url | absURL }}"
+									class="projectSubNavigation__link"
 								>
-									{{ cond (isset . "title") .title $page.Title }}
+									{{ .title }}
 								</a>
+							{{ end }}
+							{{ if and (isset . "page") (ne .page "") }}
+								{{ $page := $context.Site.GetPage .page }}
+								{{ if $page }}
+									<a href="{{ $page.URL | absURL }}"
+										class="projectSubNavigation__link{{ if eq $context.Permalink $page.Permalink }} projectSubNavigation__link--current{{ end }}"
+									>
+										{{ cond (isset . "title") .title $page.Title }}
+									</a>
+								{{ end }}
 							{{ end }}
 						{{ end }}
 					</div>
