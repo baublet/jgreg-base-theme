@@ -14,6 +14,9 @@
         padding: $spacing-small;
         border-bottom: 1px solid rgba($color-foreground, .25);
     }
+    td:first-child {
+        min-width: 7em;
+    }
     tbody tr:first-child td {
         font-weight: bold;
         text-transform: uppercase;
