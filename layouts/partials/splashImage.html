@@ -11,7 +11,7 @@
                 </div>
                 {{ if .Params.splash_image.caption }}
                     <div class="splashImageCaption">
-                        {{ .Params.splash_image.caption }}
+                        {{ .Params.splash_image.caption | markdownify }}
                     </div>
                 {{ end }}
             </div>
