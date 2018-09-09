@@ -1,0 +1,29 @@
+.splashImage {
+    display: table;
+    max-width: 100%;
+}
+
+.splashImage img {
+    width: 100%;
+    height: auto;
+}
+
+.splashImageDesktop {
+    display: none;
+    @include onDesktop() {
+        display: block;
+    }
+}
+
+.splashImageMobile {
+    @include onDesktop() {
+        display: none;
+    }
+}
+
+.splashImageCaption {
+    font-family: $font-family-default;
+    font-size: $font-size-small;
+    line-height: 1.2;
+    margin-top: $spacing-small;
+}

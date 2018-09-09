@@ -39,10 +39,14 @@ $color-primary-light: lighten(saturate($color-primary, 50%), 15%);
 
 @mixin card() {
 	padding: $spacing-normal;
-	box-shadow: 0 3px 8px -3px rgba($color-foreground, .25);
+	box-shadow: 0 3px 12px -3px rgba($color-foreground, .45);
 	border-radius: 5px;
 	border: 1px solid transparent;
+  transform: translateY(0);
 	&:hover {
 		border-color: rgba($color-foreground, .1);
+    box-shadow: 0 5px 48px -5px rgba($color-foreground, .15);
+    transform: translateY(-.1em);
+    transition: .15s ease-in-out all;
 	}
 }

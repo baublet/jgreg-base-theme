@@ -14,3 +14,12 @@
     	</div>
     {{ end }}
 {{ end }}
+
+{{ if isset .Params "sidebar_content" }}
+    {{ if ne .Params.sidebar_content "" }}
+        <div class="sidebar">
+            {{ .Params.sidebar_content | markdownify }}
+            <i class="fas fa-chevron-circle-left sidebar__drag-indicator"></i>
+        </div>
+    {{ end }}
+{{ end }}

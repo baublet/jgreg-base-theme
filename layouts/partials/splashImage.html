@@ -1,0 +1,21 @@
+{{ if .Params.splash_image }}
+    {{ if .Params.splash_image.enable }}
+        {{ $imageResource := (.Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" .Params.splash_image.image ) }}
+        {{ if $imageResource }}
+            <div class="splashImage">
+                {{ $desktopImage := $imageResource.Permalink }}
+                {{ $mobileImage := ($imageResource.Fill "800x600 Top").Permalink }}
+                <div class="splashImageImageContainer">
+                    <img src="{{ $desktopImage }}" class="splashImageDesktop" />
+                    <img src="{{ $mobileImage }}" class="splashImageMobile" />
+                </div>
+                {{ if .Params.splash_image.caption }}
+                    <div class="splashImageCaption">
+                        {{ .Params.splash_image.caption }}
+                    </div>
+                {{ end }}
+            </div>
+            <hr />
+        {{ end }}
+    {{ end }}
+{{ end }}

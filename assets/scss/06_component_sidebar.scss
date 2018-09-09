@@ -136,10 +136,11 @@ $sidebarOffset: 180px;
 	table {
 		border: 1px solid rgba($color-foreground, .15);
 		width: 100%;
+		margin-top: $spacing-normal;
 	}
 
 	td {
-		padding: $spacing-normal;
+		padding: $spacing-small;
 	}
 
 }
