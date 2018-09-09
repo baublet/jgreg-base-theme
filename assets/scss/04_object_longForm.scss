@@ -23,14 +23,16 @@
 		margin: $spacing-larger 0;
 		width: 50%;
 	}
-	a[name*="ref"] {
+	a[name*="ref"],
+	a[href*="_ftn"] {
 		color: $color-foreground;
 		font-size: $font-size-smallest;
 		text-decoration: none;
 		display: inline-block;
 		vertical-align: super;
 	}
-	a[href*="ref"][href*="#_"] {
+	a[href*="ref"][href*="#_"],
+	a[href*="_ftnref"] {
 		color: $color-foreground;
 		font-weight: bold;
 		display: inline-block;
