@@ -1,28 +1,31 @@
 {{ $block := .Scratch.Get "current_block" }}
 {{ $imageResource := (.Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" $block.image ) }}
+
 {{ if $imageResource }}
-    {{ $image := ($imageResource.Fill "350x350 Top").Permalink }}
-
-    <div class="image-with-caption
-        {{ if eq $block.alignment "Left" }}float--left image-with-caption--float{{ end }}
-        {{ if eq $block.alignment "Right" }}float--right image-with-caption--float{{ end }}
-        {{ if eq $block.alignment "Tile" }}image-with-caption--tile{{ end }}
-        {{ if eq $block.alignment "Tile" }}image-with-caption--center{{ end }}
-    ">
-        {{ if eq $block.caption_location "Top" }}
-            <div class="image-with-caption__caption">
-                {{ $block.caption | markdownify }}
-            </div>
-        {{ end }}
-
-        <a href="{{ if $block.link }}{{ $block.link }}{{ else }}{{ $block.image }}{{ end }}" class="image-with-caption__image-link">
-            <img src="{{ $image | absURL }}" class="image-with-caption__image" />
-        </a>
-
-        {{ if eq $block.caption_location "Bottom" }}
-            <div class="image-with-caption__caption">
-                {{ $block.caption | markdownify }}
-            </div>
-        {{ end }}
-    </div>
+    {{ .Scratch.Set "image-with-caption-image" ($imageResource.Fill "350x350 Top").Permalink }}
+{{ else }}
+    {{ .Scratch.Set "image-with-caption-image" $block.image_url}}
 {{ end }}
+
+<div class="image-with-caption
+    {{ if eq $block.alignment "Left" }}float--left image-with-caption--float{{ end }}
+    {{ if eq $block.alignment "Right" }}float--right image-with-caption--float{{ end }}
+    {{ if eq $block.alignment "Tile" }}image-with-caption--tile{{ end }}
+    {{ if eq $block.alignment "Tile" }}image-with-caption--center{{ end }}
+">
+    {{ if and (isset $block "caption") (eq $block.caption_location "Top") }}
+        <div class="image-with-caption__caption">
+            {{ $block.caption | markdownify }}
+        </div>
+    {{ end }}
+
+    <a href="{{ if $block.link }}{{ $block.link }}{{ else }}{{ $block.image }}{{ end }}" class="image-with-caption__image-link">
+        <img src="{{ .Scratch.Get "image-with-caption-image" | absURL }}" class="image-with-caption__image" />
+    </a>
+
+    {{ if and (isset $block "caption") (eq $block.caption_location "Bottom") }}
+        <div class="image-with-caption__caption">
+            {{ $block.caption | markdownify }}
+        </div>
+    {{ end }}
+</div>

@@ -15,7 +15,7 @@
         padding: $spacing-small;
         border-bottom: 1px solid lighten($color-foreground, 80);
     }
-    td[colspan="3"] {
+    td[colspan="3"]:first-child {
         font-size: $font-size-large;
         font-weight: bold;
     }
