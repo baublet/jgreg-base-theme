@@ -2,30 +2,6 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    @include onDesktop() {
-        position: relative;
-        overflow: hidden;
-        padding: $spacing-normal;
-        margin: 0 -#{$spacing-normal};
-        &:before {
-            z-index: 0;
-            content: " ";
-            display: block;
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background: rgba($color-foreground, .03);
-            transform: translateY(100%);
-            opacity: 0;
-            transition: .15s ease-in-out;
-        }
-        &:hover:before {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
 }
 
 .mediaWithText__mediaContainer,
