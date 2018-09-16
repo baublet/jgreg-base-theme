@@ -1,12 +1,6 @@
 {{ $block := .Scratch.Get "current_block" }}
 {{ $imageResource := (.Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" $block.image ) }}
 
-{{ if $imageResource }}
-    {{ .Scratch.Set "image-with-caption-image" ($imageResource.Fill "350x350 Top").Permalink }}
-{{ else }}
-    {{ .Scratch.Set "image-with-caption-image" $block.image_url}}
-{{ end }}
-
 <div class="image-with-caption
     {{ if eq $block.alignment "Left" }}float--left image-with-caption--float{{ end }}
     {{ if eq $block.alignment "Right" }}float--right image-with-caption--float{{ end }}
@@ -20,7 +14,19 @@
     {{ end }}
 
     <a href="{{ if $block.link }}{{ $block.link }}{{ else }}{{ $block.image }}{{ end }}" class="image-with-caption__image-link">
-        <img src="{{ .Scratch.Get "image-with-caption-image" | absURL }}" class="image-with-caption__image" />
+        <img
+            {{ $imageResource := (.Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" $block.image ) }}
+            {{ if $imageResource }}
+                {{ if or (gt $imageResource.Width 400) (gt $imageResource 400) }}
+                    src="{{ ($imageResource.Fill "350x350 Top").Permalink }}"
+                {{ else }}
+                    src="{{ $imageResource.Permalink }}"
+                {{ end }}
+            {{ else }}
+                src="{{ $block.image_url }}"
+            {{ end }}
+            class="image-with-caption__image"
+        />
     </a>
 
     {{ if and (isset $block "caption") (eq $block.caption_location "Bottom") }}

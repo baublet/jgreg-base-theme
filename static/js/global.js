@@ -56,6 +56,6 @@ if (navigationToggleCheck) {
 const galleries = document.querySelectorAll(".photo-gallery");
 if (galleries && typeof lightGallery !== "undefined") {
 	forEach(galleries, function(gallery) {
-		lightGallery(gallery);
+		lightGallery(gallery, { subHtmlSelectorRelative: true });
 	});
 }

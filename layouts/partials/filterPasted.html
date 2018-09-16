@@ -1,0 +1,7 @@
+{{ .Set "filtered-content" (replaceRE "&nbsp;" " " (.Get "filtered-content")) }}
+{{ .Set "filtered-content" (replaceRE `href\=\"[^#]+#_edn(\d+)\"` "href=\"#note$1\" name=\"ref$1\"" (.Get "filtered-content")) }}
+{{ .Set "filtered-content" (replaceRE `href\=\"[^#]+#_ednref(\d+)\"` "href=\"#ref$1\" name=\"note$1\"" (.Get "filtered-content")) }}
+{{ .Set "filtered-content" (replaceRE `\[(\d+)\]` "$1" (.Get "filtered-content")) }}
+{{ .Set "filtered-content" (replaceRE `class="(?:MsoNormal|MsoEndnoteText)"` "" (.Get "filtered-content")) }}
+{{ .Set "filtered-content" (replaceRE `https?:\/\/depts\.washington\.edu\/civilr\/([^#"]+\.htm)` "$1" (.Get "filtered-content")) }}
+{{ .Set "filtered-content" (replaceRE `[…\.]{2,}` "…" (.Get "filtered-content")) }}

@@ -17,8 +17,11 @@
 
 {{ if isset .Params "sidebar_content" }}
     {{ if ne .Params.sidebar_content "" }}
+        {{ .Scratch.Set "filtered-content" (markdownify .Params.sidebar_content) }}
+        {{ partial "filterPasted.html" .Scratch }}
+        {{ $content := .Scratch.Get "filtered-content" }}
         <div class="sidebar">
-            {{ .Params.sidebar_content | markdownify }}
+            {{ $content | safeHTML }}
             <i class="fas fa-chevron-circle-left sidebar__drag-indicator"></i>
         </div>
     {{ end }}

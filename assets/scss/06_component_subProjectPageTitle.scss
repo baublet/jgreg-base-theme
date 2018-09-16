@@ -20,11 +20,10 @@
 		font-size: $font-size-largest;
 	}
 	h2 {
-		font-size: $font-size-small;
-		font-family: $font-family-small;
-		text-transform: uppercase;
-		margin-top: 0;
-		font-weight: bold;
-    	color: rgba($color-foreground, .5);
+		font-size: $font-size-large;
+		font-family: $font-family-default;
+		margin-top: $spacing-small;
+		font-weight: 400;
+    	color: rgba($color-foreground, .85);
 	}
 }

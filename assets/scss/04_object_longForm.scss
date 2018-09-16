@@ -32,7 +32,8 @@
 		vertical-align: super;
 	}
 	a[href*="ref"][href*="#_"],
-	a[href*="_ftnref"] {
+	a[href*="_ftnref"],
+	a[name*="note"] {
 		color: $color-foreground;
 		font-weight: bold;
 		display: inline-block;
