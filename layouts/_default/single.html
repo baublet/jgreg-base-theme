@@ -8,6 +8,9 @@
 			    {{ partial "contentBlocks/youtubeVideo.html" .Params.youtube_link }}
             </div>
 		{{ end }}
-		{{ .Content }}
+		{{ .Scratch.Set "filtered-content" .Content }}
+		{{ partial "filterPasted.html" .Scratch }}
+		{{ $content := .Scratch.Get "filtered-content" }}
+		{{ $content | safeHTML }}
 	{{ end }}
 {{ end }}

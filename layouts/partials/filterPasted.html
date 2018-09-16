@@ -3,5 +3,7 @@
 {{ .Set "filtered-content" (replaceRE `href\=\"[^#]+#_ednref(\d+)\"` "href=\"#ref$1\" name=\"note$1\"" (.Get "filtered-content")) }}
 {{ .Set "filtered-content" (replaceRE `\[(\d+)\]` "$1" (.Get "filtered-content")) }}
 {{ .Set "filtered-content" (replaceRE `class="(?:MsoNormal|MsoEndnoteText)"` "" (.Get "filtered-content")) }}
-{{ .Set "filtered-content" (replaceRE `https?:\/\/depts\.washington\.edu\/civilr\/([^#"]+\.htm)` "$1" (.Get "filtered-content")) }}
+{{ .Set "filtered-content" (replaceRE `https?:\/\/depts\.washington\.edu\/civilr\/([^#"]+\.htm)` `$1` (.Get "filtered-content")) }}
 {{ .Set "filtered-content" (replaceRE `[…\.]{2,}` "…" (.Get "filtered-content")) }}
+{{ .Set "filtered-content" (replaceRE `"([^"\.]+)\.htm"` `$1.html` (.Get "filtered-content")) }}
+{{ .Set "filtered-content" (replace (.Get "filtered-content") `n` `ñ`) }}
