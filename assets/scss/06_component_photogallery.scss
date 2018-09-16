@@ -27,3 +27,10 @@
     clear: both;
     margin-top: $spacing-small;
 }
+
+.lg-outer {
+    font-family: $font-family-default;
+    p {
+        max-width: none;
+    }
+}

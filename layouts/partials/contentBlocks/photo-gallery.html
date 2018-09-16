@@ -1,6 +1,10 @@
 {{ $block := .Scratch.Get "current_block" }}
 {{ $context := . }}
 
+{{ if (isset $block "title") | and (ne $block.title "") }}
+    <h2 class="photo-gallery--title">{{ $block.title }}</h2>
+{{ end }}
+
 <div class="photo-gallery">
     {{ range $block.image }}
         {{ $imageResource := ($.Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" .image ) }}
