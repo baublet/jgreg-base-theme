@@ -104,13 +104,6 @@ body:after {
 	transition: .24s all ease-in-out;
 }
 
-.navigationList a:active,
-.navigationList a:focus,
-.navigationList a:active {
-	background: $color-primary;
-	color: $color-background;
-}
-
 .navigation h3 {
 	margin-bottom: $spacing-normal;
 }
@@ -123,7 +116,7 @@ body:after {
 
 .navigationList a {
 	padding: $spacing-small 0;
-	width: calc(50% - 4px);
+	width: calc(50% - 6px);
 	text-align: center;
 	border: 1px solid rgba($color-foreground, .15);
 	border-radius: 3px;
@@ -131,6 +124,7 @@ body:after {
 	text-decoration: none;
 	font-weight: bold;
 	color: $color-foreground;
+	margin: 3px;
 	.fas {
 		display: block;
 		font-size: $font-size-large;
@@ -147,6 +141,7 @@ body:after {
 	@include onDesktop() {
 		width: auto;
 		border: 0;
+		margin: 0;
 		+ a {
 			margin-left: $spacing-normal;
 		}
