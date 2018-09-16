@@ -1,0 +1,11 @@
+.masonry {
+    margin: $spacing-normal 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.masonry__brick {
+    @include card();
+    width: 250px;
+    margin: 10px;
+}

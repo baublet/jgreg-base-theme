@@ -21,6 +21,5 @@
 {{ if not $lightboxAdded }}
     <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/lightgallery.css" />
     <script src="{{ .Site.BaseURL }}js/vendor/lightgallery.min.js"></script>
-    <script src="{{ .Site.BaseURL }}js/vendor/lg-thumbnail.min.js"></script>
     {{ $.Scratch.Set "gallery-requirements-added" true }}
 {{ end }}
