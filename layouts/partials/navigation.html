@@ -9,7 +9,10 @@
 		<h3 class="navigationCurrentProject">{{ .Site.Params.projectTitle }}</h3>
 		<div class="navigationList">
 	        {{ $navigation := $.Site.GetPage "page" "templates/navigation.html" }}
-		    {{ $navigation.Content | safeHTML }}
+	        {{ .Scratch.Set "filtered-content" $navigation.Content }}
+			{{ partial "filterPasted.html" .Scratch }}
+			{{ $filteredContent := .Scratch.Get "filtered-content" }}
+			{{ $filteredContent | safeHTML }}
 		</div>
 		<input type="checkbox" id="navigationOverflow" class="navigationOverflowCheck screenReaderText" />
 		<label for="navigationOverflow" class="hideOnMobile navigationOverflowLabel">
@@ -24,7 +27,10 @@
 		</label>
 		<div class="navigationOverflow" id="navigationOverflow">
 	        {{ $navigationOverflow := $.Site.GetPage "page" "templates/navigationOverflow.html" }}
-		    {{ $navigationOverflow.Content }}
+	        {{ .Scratch.Set "filtered-content" $navigationOverflow.Content }}
+			{{ partial "filterPasted.html" .Scratch }}
+			{{ $filteredOverflowContent := .Scratch.Get "filtered-content" }}
+			{{ $filteredOverflowContent | safeHTML }}
 		</div>
 	</div>
 </div>
