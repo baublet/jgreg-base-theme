@@ -2,12 +2,21 @@
 {{ $link := cond (isset $interview "page_link") (ref . $interview.page_link) $interview.url }}
 
 <div class="pagePreviewCard">
-	<b>
-		{{ if $link }}
-			<a href="{{ $link }}">{{ $interview.title }}</a>
-		{{ else }}
-			{{ $interview.title }}
-		{{ end }}
-	</b>
-	<p><img src="{{ $interview.image }}">{{ $interview.content }}</p>
+    {{ if $link }}
+        <a href="{{ $link }}" class="pagePreviewCard__mediaLink">
+    {{ end }}
+            <img src="{{ $interview.image }}" class="pagePreviewCard__media">
+    {{ if $link }}
+        </a>
+    {{ end }}
+    <div class="pagePreviewCard__content">
+    	<b class="pagePreviewCard__title">
+    		{{ if $link }}
+    			<a href="{{ $link }}" class="pagePreviewCard__titleLink">{{ $interview.title }}</a>
+    		{{ else }}
+    			{{ $interview.title }}
+    		{{ end }}
+    	</b>
+    	{{ $interview.content }}
+    </div>
 </div>
