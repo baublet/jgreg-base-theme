@@ -1,9 +1,9 @@
 .pageTitle {
 	margin-bottom: $spacing-normal;
-	background: $color-primary;
-	background: linear-gradient($color-primary, darken($color-primary, 25));
+	background: $color-foreground;
+	background: linear-gradient($color-foreground, #000);
 	color: $color-background;
-	padding: $spacing-larger 0;
+	padding: $spacing-largest 0 $spacing-larger;
 	text-shadow: 2px 2px 0 black, 2px 2px 5px rgba(black, .5);
 	width: 100%;
 

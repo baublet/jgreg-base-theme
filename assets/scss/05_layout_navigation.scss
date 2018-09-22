@@ -61,7 +61,6 @@ body:after {
 	box-shadow: 3px 3px 5px -3px rgba($color-foreground, .5);
 	border: 1px solid rgba($color-foreground, .15);
 	border-top: 0;
-	opacity: .9;
 
 	display: flex;
     align-items: center;
@@ -283,13 +282,14 @@ body:after {
 .navigationOverflowLabel {
 	display: block;
 	position: absolute;
-	top: calc(100% + 10px);
+	top: calc(100% + 5px);
 	right: 15px;
 	bottom: auto;
 	left: auto;
-	opacity: .75;
 	background: $color-primary-light;
 	z-index: 1;
+	padding: $spacing-smaller $spacing-small;
+	font-size: $font-size-smallest;
 	&:hover {
 		opacity: 1;
 	}
@@ -306,7 +306,6 @@ body:after {
 		display: none;
 	}
 	.navigationOverflowCheck:checked + & {
-		opacity: 1;
 		.navigationOverflowLabel__off {
 			display: none;
 		}
