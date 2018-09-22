@@ -1,4 +1,4 @@
-$sidebarOffset: 180px;
+$sidebarOffset: 130px;
 
 .sidebar h2 {
 	font-weight: normal;
@@ -43,7 +43,7 @@ $sidebarOffset: 180px;
 	line-height: 1.25;
 	
 	float: right;
-	width: 300px;
+	width: 250px;
 
 	margin-right: calc(-#{$sidebarOffset} - #{$spacing-normal});
 	margin-left: $spacing-normal;
@@ -147,7 +147,7 @@ $sidebarOffset: 180px;
 
 @include onDesktop() {
 	.sidebar--wide {
-		min-width: 450px;
+		min-width: 350px;
 		img {
 			margin-left: 0;
 			margin-right: 0;

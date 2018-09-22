@@ -1,11 +1,37 @@
 .pageTitle {
 	margin-bottom: $spacing-normal;
 	background: $color-primary;
-	background: linear-gradient($color-primary, darken($color-primary, 15));
+	background: linear-gradient($color-primary, darken($color-primary, 25));
 	color: $color-background;
 	padding: $spacing-larger 0;
 	text-shadow: 2px 2px 0 black, 2px 2px 5px rgba(black, .5);
 	width: 100%;
+
+	@include onDesktop() {
+		> * {
+			position: relative;
+			z-index: 1;
+		}
+		overflow: hidden;
+		position: relative;
+		&:before {
+			display: block;
+			content: "";
+			z-index: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			position: absolute;
+			background: url($home-splash);
+			background-size: cover;
+			filter: blur(1px) contrast(200%);
+			opacity: .1;
+		}
+		.home &:before {
+			display: none;
+		}
+	}
 
 	* {
 		+ * {
