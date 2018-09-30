@@ -1,0 +1,31 @@
+.interviewsIndex {
+    @include onDesktop() {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.interview {
+    padding-left: 75px;
+    @include onDesktop() {
+        width: 50%;
+        padding: $spacing-normal $spacing-normal $spacing-normal 75px;
+    }
+}
+
+.interviewIndexImage {
+    float: left;
+    margin-left: -60px;
+    margin-top: 8px;
+    width: 50px;
+    height: auto;
+}
+
+.interviewIndexName {
+    font-weight: bold;
+}
+
+.interviewIndexDescription {
+    font-size: $font-size-smaller;
+    margin-top: 0;
+}
