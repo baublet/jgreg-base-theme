@@ -2,5 +2,3 @@
 {{ partial "filterPasted.html" .Scratch }}
 {{ $content := .Scratch.Get "filtered-content" }}
 {{ $content | safeHTML }}
-
-{{ $content | safeHTML }}
