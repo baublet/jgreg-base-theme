@@ -1,4 +1,4 @@
-{{ $subproject := .Site.GetPage ($.Scratch.Get "subproject") }}
+{{ $subproject := default (.Site.GetPage "page" ($.Scratch.Get "subproject")) (.Site.GetPage (replace ($.Scratch.Get "subproject") "content/" "")) }}
 {{ $.Scratch.Set "current_subproject" $subproject }}
 {{ $context := . }}
 
@@ -63,6 +63,4 @@
 		{{ end }}
 
 	{{ end }}
-{{ else }}
-	{{ partial "debug.html" . }}
 {{ end }}
