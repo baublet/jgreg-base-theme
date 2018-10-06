@@ -1,5 +1,4 @@
 {{ $block := .Scratch.Get "current_block" }}
-{{ $imageResource := (.Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" $block.image ) }}
 
 <div class="image-with-caption
     {{ if eq $block.alignment "Left" }}float--left image-with-caption--float{{ end }}
@@ -15,8 +14,8 @@
 
     <a href="{{ if $block.link }}{{ $block.link }}{{ else }}{{ $block.image }}{{ end }}" class="image-with-caption__image-link">
         <img
-            {{ $imageResource := (.Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" $block.image ) }}
-            {{ if $imageResource }}
+            {{ if $block.image }}
+                {{ $imageResource := (.Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" $block.image ) }}
                 {{ if or (gt $imageResource.Width 400) (gt $imageResource 400) }}
                     src="{{ ($imageResource.Fill "350x350 Top").Permalink }}"
                 {{ else }}
