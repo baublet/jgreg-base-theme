@@ -1,0 +1,12 @@
+.inlineImage {
+    display: table;
+    margin-bottom: $spacing-large !important;
+    font-size: $font-size-smallest;
+    p {
+        display: table-caption;
+        font-family: $font-family-default;
+        word-wrap: break-word;
+        width: 100%;
+        caption-side: bottom;
+    }
+}

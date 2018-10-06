@@ -1,11 +1,19 @@
 .float--right {
 	float: right;
+    margin-top: $spacing-normal;
 	margin-left: $spacing-small;
-	margin-bottom: $spacing-small;
+	margin-bottom: $spacing-normal;
 }
 
 .float--left {
 	float:left;
+    margin-top: $spacing-normal;
 	margin-right: $spacing-small;
-	margin-bottom: $spacing-small;
+	margin-bottom: $spacing-normal;
+}
+
+.float--left + ul {
+    display: table;
+    display: flow-root;
+    margin-left: $spacing-normal;
 }
