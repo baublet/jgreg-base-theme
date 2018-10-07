@@ -314,3 +314,42 @@ body:after {
 		}
 	}
 }
+
+.navigationOverflowBottom {
+	display: flex;
+	justify-content: space-between;
+}
+
+.socialMediaFacebook {
+	text-decoration: none;
+	color: $color-foreground;
+	padding: $spacing-small;
+	border-radius: 3px;
+	border: 1px solid transparent;
+	.fab {
+		transform: scale(1.3, 1.3);
+		margin-right: 3px;
+		opacity: .75;
+		color: #3b5998;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		background: rgba($color-foreground, .1);
+		border-color: rgba($color-foreground, .25);
+		.fab {
+			opacity: 1;
+		}
+	}
+}
+
+.navigationOverflowBottom__searchButton {
+	background: transparent;
+	color: rgba($color-foreground, .75);
+	&:hover,
+	&:active,
+	&:focus {
+		color: $color-foreground;
+		background: transparent;
+	}
+}

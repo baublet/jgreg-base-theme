@@ -27,3 +27,10 @@
     	color: rgba($color-foreground, .85);
 	}
 }
+
+.subProjectPageTitle .fourOhFour_header {
+	@include onDesktop() {
+		display: flex;
+		justify-content: space-between;
+	}
+}
