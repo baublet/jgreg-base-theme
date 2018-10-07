@@ -1,6 +1,8 @@
 .mediaWithText {
-    display: flex;
-    justify-content: space-between;
+    @include onDesktop() {
+        display: flex;
+        justify-content: space-between;
+    }
     & + & {
         margin-top: $spacing-largest;
     }
@@ -13,7 +15,16 @@
 }
 
 .mediaWithText__mediaContainer {
-    flex-grow: 0;
+    float: right;
+    max-width: 25%;
+    @include onDesktop() {
+        flex-grow: 0;
+        float: none !important;
+    }
+}
+
+.mediaWithText--left {
+    float: left;
 }
 
 .mediaWithText__text {
@@ -27,8 +38,11 @@
 }
 
 .mediaWithText__image {
-    max-width: 250px;
+    max-width: 100%;
     height: auto;
+    @include onDesktop() {
+        max-width: 250px;
+    }
 }
 
 .mediaWithText__text {
