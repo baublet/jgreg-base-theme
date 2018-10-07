@@ -5,7 +5,7 @@
 	background: $color-background;
 	
 	@include onMobile() {
-		margin-top: $spacing-larger;
+		margin-top: $spacing-normal * 3.5;
 	}
 }
 

@@ -21,6 +21,11 @@
     height: auto;
 }
 
+.interviewIndexImage + .interviewIndexImage {
+    clear: left;
+    margin-top: 2px;
+}
+
 .interviewIndexName {
     font-weight: bold;
 }
