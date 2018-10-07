@@ -1,15 +1,18 @@
+.float--right,
+.float--left {
+    margin-top: $spacing-normal;
+    margin-bottom: $spacing-normal;
+    max-width: 50%;
+}
+
 .float--right {
 	float: right;
-    margin-top: $spacing-normal;
 	margin-left: $spacing-small;
-	margin-bottom: $spacing-normal;
 }
 
 .float--left {
 	float:left;
-    margin-top: $spacing-normal;
 	margin-right: $spacing-small;
-	margin-bottom: $spacing-normal;
 }
 
 .float--left + ul {
