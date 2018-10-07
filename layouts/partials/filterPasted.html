@@ -7,3 +7,13 @@
 {{ .Set "filtered-content" (replaceRE `[…\.]{2,}` "…" (.Get "filtered-content")) }}
 {{ .Set "filtered-content" (replaceRE `"([^"\.]+)\.htm"` `$1.html` (.Get "filtered-content")) }}
 {{ .Set "filtered-content" (replace (.Get "filtered-content") `n` `ñ`) }}
+{{ .Set "filtered-content" (replace (.Get "filtered-content") ` class="style5 style8 style19"` ``) }}
+
+{{ .Set "filtered-content-headers" (findRE `<h[2|3|4|5|6]>.*<\/h[2|3|4|5|6]>` (.Get "filtered-content")) }}
+
+{{ $context := . }}
+{{ range $header := (.Get "filtered-content-headers") }}
+    {{ $context.Set "filtered-content-headers-plain" (urlize (plainify $header)) }}
+    {{ $context.Set "filtered-content-headers-fixed" (replaceRE `(<h[2|3|4|5|6])>` (printf `$1 id="%v">` ($context.Get "filtered-content-headers-plain")) $header) }}
+    {{ $context.Set "filtered-content" (replace ($context.Get "filtered-content") $header ($context.Get "filtered-content-headers-fixed")) }}
+{{ end }}

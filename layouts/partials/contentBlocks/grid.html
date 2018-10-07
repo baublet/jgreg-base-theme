@@ -29,6 +29,17 @@
 
 {{ if $block.column_1 }}
     {{ if gt (len $block.column_1) 0 }}
+        {{ if $block.column_1_span }}
+            {{ if eq $block.column_1_span "1" }}
+                {{ .Scratch.Set "grid_width" "w-1/3" }}
+            {{ end }}
+            {{ if eq $block.column_1_span "2" }}
+                {{ .Scratch.Set "grid_width" "w-1/2" }}
+            {{ end }}
+            {{ if eq $block.column_1_span "3" }}
+                {{ .Scratch.Set "grid_width" "w-2/3" }}
+            {{ end }}
+        {{ end }}
         <div class="grid__column {{ .Scratch.Get "grid_width" }}">
             {{ range $index, $gridBlock := $block.column_1 }}
                 {{ $.Scratch.Set "current_block" $gridBlock }}
@@ -41,6 +52,17 @@
 
 {{ if $block.column_2 }}
     {{ if gt (len $block.column_2) 0 }}
+        {{ if $block.column_2_span }}
+            {{ if eq $block.column_2_span "1" }}
+                {{ .Scratch.Set "grid_width" "w-1/3" }}
+            {{ end }}
+            {{ if eq $block.column_2_span "2" }}
+                {{ .Scratch.Set "grid_width" "w-1/2" }}
+            {{ end }}
+            {{ if eq $block.column_2_span "3" }}
+                {{ .Scratch.Set "grid_width" "w-2/3" }}
+            {{ end }}
+        {{ end }}
         <div class="grid__column {{ .Scratch.Get "grid_width" }}">
             {{ range $index, $gridBlock := $block.column_2 }}
                 {{ $.Scratch.Set "current_block" $gridBlock }}
