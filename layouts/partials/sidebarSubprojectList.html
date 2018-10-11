@@ -1,12 +1,7 @@
-{{ $sidebar := .Site.GetPage .Params.sidebar }}
-{{ if eq $sidebar.Content "" }}
-    <hr />
-{{ end }}
-
 <h2>Special Sections</h2>
 
 {{ $context := . }}
-{{ range (where (where .Site.Pages "Type" "subproject-menus") "IsPage" true) }}
+{{ range (where (where .Site.Pages "Type" "subproject-menus") "IsPage" true).ByParam "order" }}
     {{ $subprojectHomePage := (.Site.GetPage "page" .Params.project_home_page) }}
     {{ if $subprojectHomePage }}
         <h3>
