@@ -4,7 +4,7 @@
 		{{ partial "contentBlocks.html" . }}
 	{{ else }}
 		{{ if .Params.youtube_link }}
-            <div class="youtube--oral-history-wrapper">
+            <div class="youtube--video-wrapper{{ if (isset .Params "large_player") | and .Params.large_player }} youtube--video-wrapper--large{{ end }}">
 			    {{ partial "contentBlocks/youtubeVideo.html" .Params.youtube_link }}
             </div>
 		{{ end }}

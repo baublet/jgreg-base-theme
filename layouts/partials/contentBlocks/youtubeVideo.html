@@ -1,4 +1,5 @@
 {{ $list := findRE "list=([^&]*)" . }}
+
 {{ if gt (len $list) 0 }}
 	<div class="youtube--playlist">
 		<div class="youtube--playlist--info">

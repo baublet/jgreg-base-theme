@@ -1,5 +1,9 @@
 .longForm {
-	h2, h3, h4, h5, h6 {
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
 		margin-bottom: $spacing-normal;
 		clear: left;
 	}
@@ -11,7 +15,8 @@
 		font-size: $font-size-normal;
 	}
 
-	h4, h5 {
+	h4,
+	h5 {
 		font-size: $font-size-normal;
 	}
 
@@ -20,7 +25,7 @@
 	}
 	hr {
 		border: 0;
-		border-bottom: 1px solid rgba($color-foreground, .15);
+		border-bottom: 1px solid rgba($color-foreground, 0.15);
 		margin: $spacing-larger 0;
 		width: 50%;
 	}
@@ -44,13 +49,5 @@
 	}
 	li {
 		max-width: $max-paragraph-line-width;
-	}
-	iframe[src*="youtube"] {
-		display: block;
-		border: 0;
-		width: 100%;
-		height: auto;
-		min-height: 400px;
-		max-height: 90vh;
 	}
 }
