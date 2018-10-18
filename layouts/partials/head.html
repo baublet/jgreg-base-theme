@@ -2,8 +2,17 @@
 
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1" name="viewport">
+<meta name="description" content="{{ truncate 300 (plainify .Content) }}">
 
-<title>{{ .Title }}</title>
+<title>
+    {{ if isset .Params "canonical_title" }}
+        {{ .Params.canonical_title }}{{ if .Params.subtitle }}:{{ end }}
+    {{ else }}
+        {{ .Title }}{{ if .Params.subtitle }}:{{ end }}
+    {{ end }}
+    {{ if .Params.subtitle }}{{ .Params.subtitle }}{{ end }}
+    - {{ .Site.Title }}
+</title>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 

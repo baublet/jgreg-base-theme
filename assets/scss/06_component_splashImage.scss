@@ -23,7 +23,8 @@
 
 .splashImageCaption {
     font-family: $font-family-default;
-    font-size: $font-size-small;
+    font-size: $font-size-smaller;
     line-height: 1.2;
     margin-top: $spacing-small;
+    color: rgba($color-foreground, 0.5);
 }

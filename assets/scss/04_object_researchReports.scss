@@ -1,0 +1,15 @@
+.research_reports .body ul {
+    list-style-type: none;
+}
+
+.research_reports .body ul a {
+    display: block;
+    font-weight: bold;
+}
+
+.research_reports .body ul ul {
+    font-size: $font-size-small;
+    margin-top: $spacing-normal;
+    margin-bottom: $spacing-large;
+    padding: 0;
+}
