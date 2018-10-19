@@ -10,7 +10,7 @@
     {{ end }}
 {{ end }}
 
-{{ if eq (relURL .URL) ("/" | safeHTML) }}
+{{ if and (eq (relURL .URL) ("/" | safeHTML)) .Page.IsHome }}
     <div class="sidebar sidebar--wide sidebar--subproject-list">
         {{ partial "sidebarSubprojectList.html" . }}
         <i class="fas fa-chevron-circle-left sidebar__drag-indicator"></i>

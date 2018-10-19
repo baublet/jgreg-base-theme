@@ -28,14 +28,41 @@
   font-family: $font-family-small;
   clear: both;
   width: 100%;
+  text-align: center;
+  @include onDesktop() {
+    text-align: left;
+  }
+  .grid {
+    align-items: center;
+  }
 }
 
 .footer a {
   color: $color-background;
   text-decoration: none;
-  border-bottom: 1px solid rgba($color-background, .25);
+  border-bottom: 1px solid rgba($color-background, 0.25);
 }
 
-.footer a:hover, .footer a:focus {
+.footer a:hover,
+.footer a:focus {
   border-color: $color-background;
+}
+
+.footer .socialMediaFacebook {
+  font-size: $font-size-largest;
+  text-align: center;
+  display: block;
+  border: 0;
+  opacity: 1;
+  margin-top: $spacing-normal;
+  @include onDesktop() {
+    margin-top: 0;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    .fab {
+      color: white;
+    }
+  }
 }

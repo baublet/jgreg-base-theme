@@ -5,13 +5,13 @@
 <meta name="description" content="{{ truncate 300 (plainify .Content) }}">
 
 <title>
-    {{ if isset .Params "canonical_title" }}
+    {{ if isset .Params "canonical_title" | and (ne .Params.canonical_title "") }}
         {{ .Params.canonical_title }}{{ if .Params.subtitle }}:{{ end }}
     {{ else }}
         {{ .Title }}{{ if .Params.subtitle }}:{{ end }}
     {{ end }}
     {{ if .Params.subtitle }}{{ .Params.subtitle }}{{ end }}
-    {{ if ne (relURL .URL) ("/" | safeHTML) }}-{{ end }}
+    {{ if ne (relURL .URL) ("/" | safeHTML) | and .Page.IsHome }}-{{ end }}
     {{ .Site.Title }}
 </title>
 
