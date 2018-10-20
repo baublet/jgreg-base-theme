@@ -36,6 +36,23 @@
 		text-decoration: none;
 		display: inline-block;
 		vertical-align: super;
+		padding: 3px;
+		// This makes footnotes a lot easier to hit on mobile
+		position: relative;
+		&:before {
+			position: absolute;
+			top: -15px;
+			right: -15px;
+			bottom: -15px;
+			left: -15px;
+			content: "";
+		}
+		&:hover,
+		&:active,
+		&:focus {
+			background: $color-foreground;
+			color: $color-background;
+		}
 	}
 	a[href*="ref"][href*="#_"],
 	a[href*="_ftnref"],
@@ -46,8 +63,28 @@
 		clear: left;
 		margin-right: $spacing-small;
 		text-decoration: none;
+		&:target {
+			animation-name: footnoteHighlight;
+			animation-duration: 15s;
+			border-left: 1px solid transparent;
+			&:before {
+				content: "\00BB ";
+				padding: 0 $spacing-normal;
+			}
+		}
 	}
 	li {
 		max-width: $max-paragraph-line-width;
+	}
+}
+
+@keyframes footnoteHighlight {
+	from {
+		background: yellow;
+		border-color: $color-foreground;
+	}
+	to {
+		background: transparent;
+		border-color: transparent;
 	}
 }
