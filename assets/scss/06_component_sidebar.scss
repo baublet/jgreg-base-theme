@@ -1,4 +1,4 @@
-$sidebarOffset: 130px;
+$sidebarOffset: 225px;
 
 .sidebar h2 {
 	font-weight: normal;
@@ -26,6 +26,7 @@ $sidebarOffset: 130px;
 	border-radius: 100%;
 	padding: 1px;
 	transform: translateX(0);
+	opacity: 1 !important;
 	@include onDesktop() {
 		display: none;
 	}
@@ -37,11 +38,11 @@ $sidebarOffset: 130px;
 .sidebar {
 	color: $color-background;
 	padding: $spacing-normal $spacing-small;
-	box-shadow: 3px 3px 15px rgba($color-foreground, .15);
+	box-shadow: 3px 3px 15px rgba($color-foreground, 0.15);
 	font-family: $font-family-small;
 	font-size: $font-size-smaller;
 	line-height: 1.25;
-	
+
 	float: right;
 	width: 250px;
 
@@ -60,20 +61,21 @@ $sidebarOffset: 130px;
 	}
 
 	@include onMobile() {
-		background: rgba($color-foreground, .2);
+		background: $color-primary;
 		img {
 			width: 100%;
 			height: auto;
-			opacity: .2;
 		}
 		* {
 			pointer-events: none;
+			opacity: 0;
 		}
 		&.shown {
 			transform: translateX(-$sidebarOffset);
 			background: $color-foreground;
 			* {
 				pointer-events: auto;
+				opacity: 1;
 			}
 			img {
 				opacity: 1;
@@ -82,7 +84,7 @@ $sidebarOffset: 130px;
 	}
 
 	img {
-		box-shadow: 3px 3px 5px -3px rgba($color-foreground, .15);
+		box-shadow: 3px 3px 5px -3px rgba($color-foreground, 0.15);
 		margin-right: auto;
 		margin-left: auto;
 		display: block;
@@ -91,9 +93,9 @@ $sidebarOffset: 130px;
 
 	hr {
 		margin: $spacing-normal 0;
-		border-color: rgba($color-background, .15);
+		border-color: rgba($color-background, 0.15);
 		@include onDesktop() {
-			border-color: rgba($color-foreground, .15);
+			border-color: rgba($color-foreground, 0.15);
 		}
 	}
 
@@ -129,12 +131,15 @@ $sidebarOffset: 130px;
 			top: 0;
 			left: 0;
 			bottom: 50%;
-			background: linear-gradient(rgba($color-foreground, .15), transparent);
+			background: linear-gradient(
+				rgba($color-foreground, 0.15),
+				transparent
+			);
 		}
 	}
 
 	table {
-		border: 1px solid rgba($color-foreground, .15);
+		border: 1px solid rgba($color-foreground, 0.15);
 		width: 100%;
 		margin-top: $spacing-normal;
 	}
@@ -142,7 +147,6 @@ $sidebarOffset: 130px;
 	td {
 		padding: $spacing-small;
 	}
-
 }
 
 @include onDesktop() {
