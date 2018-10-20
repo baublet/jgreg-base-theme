@@ -10,13 +10,15 @@
     overflow-y: hidden;
     white-space: nowrap;
     max-width: $max-body-width;
+    padding: 0 $spacing-normal;
     @include onDesktop() {
         margin: $spacing-normal 0 0;
+        padding: 0;
     }
 }
 
 .projectSubNavigation__link {
-    color: rgba($color-background, .7);
+    color: rgba($color-background, 0.7);
     text-decoration: none;
     display: inline-block;
     background: $color-primary;

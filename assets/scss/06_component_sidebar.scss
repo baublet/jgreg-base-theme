@@ -1,4 +1,4 @@
-$sidebarOffset: 225px;
+$sidebarOffset: 200px;
 
 .sidebar h2 {
 	font-weight: normal;
@@ -19,7 +19,7 @@ $sidebarOffset: 225px;
 	position: absolute;
 	z-index: 20;
 	top: -10px;
-	left: -10px;
+	left: -20px;
 	font-size: $font-size-larger;
 	color: $color-foreground;
 	background: $color-background;
@@ -61,18 +61,16 @@ $sidebarOffset: 225px;
 	}
 
 	@include onMobile() {
-		background: $color-primary;
+		background: $color-foreground;
 		img {
 			width: 100%;
 			height: auto;
 		}
 		* {
 			pointer-events: none;
-			opacity: 0;
 		}
 		&.shown {
 			transform: translateX(-$sidebarOffset);
-			background: $color-foreground;
 			* {
 				pointer-events: auto;
 				opacity: 1;
