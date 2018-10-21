@@ -11,4 +11,11 @@
 
 <meta name="description" content="{{ truncate 300 (plainify .Content) }}">
 
+<!--
+    {{ $styles := resources.Get "scss/main.scss" | toCSS }}
+    <link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
+    {{ $printStyles := resources.Get "scss/print.scss" | toCSS }}
+    <link rel="stylesheet" href="{{ $printStyles.Permalink }}" media="print">
+-->
+
 {{ safeHTML  `<?php`  }} include("templates/head.php"); ?>
