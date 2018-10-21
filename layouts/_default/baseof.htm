@@ -18,10 +18,10 @@
 				{{ partial "navigation.html" . }}
 			</div>
 		</div>
-		{{ if ne (relURL .URL) ("/" | safeHTML) }}
-			{{ partial "pageTitle.html" . }}
-		{{ else }}
+		{{ if .Page.IsHome }}
 			{{ partial "homeBanner.html" . }}
+		{{ else }}
+			{{ partial "pageTitle.html" . }}
 		{{ end }}
 		<div class="body contentBlock longForm" id="content">
 			{{ partial "sidebar.html" . }}

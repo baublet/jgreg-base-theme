@@ -3,12 +3,14 @@
 {{ .Set "filtered-content" (replaceRE `href\=\"[^#\"\>]+#_ednref(\d+)\"` "href=\"#ref$1\" name=\"note$1\"" (.Get "filtered-content")) }}
 {{ .Set "filtered-content" (replaceRE `\[(\d+)\]` "$1" (.Get "filtered-content")) }}
 {{ .Set "filtered-content" (replaceRE `class="(?:MsoNormal|MsoEndnoteText)"` "" (.Get "filtered-content")) }}
-{{ .Set "filtered-content" (replaceRE `https?:\/\/depts\.washington\.edu\/civilr\/([^#"]+\.htm)` `$1` (.Get "filtered-content")) }}
+{{ .Set "filtered-content" (replaceRE `https?:\/\/depts\.washington\.edu\/civilr\/([^#"]+)\.html?` `$1.htm` (.Get "filtered-content")) }}
 {{ .Set "filtered-content" (replaceRE `[…\.]{2,}` "…" (.Get "filtered-content")) }}
-{{ .Set "filtered-content" (replaceRE `"([^"\.]+)\.htm"` `$1.html` (.Get "filtered-content")) }}
 {{ .Set "filtered-content" (replace (.Get "filtered-content") `n` `ñ`) }}
-{{ .Set "filtered-content" (replace (.Get "filtered-content") ` class="style5 style8 style19"` ``) }}
+{{ .Set "filtered-content" (replace (.Get "filtered-content") `class="style5 style8 style19"` ``) }}
+{{ .Set "filtered-content" (replace (.Get "filtered-content") `class="arial10 style13"` ``) }}
 {{ .Set "filtered-content" (replace (.Get "filtered-content") `Oscar Rosales Castaneda` `Oscar Rosales Castañeda`) }}
+{{ .Set "filtered-content" (replace (.Get "filtered-content") `href="//depts.washington.edu/` `href="http://depts.washington.edu/`) }}
+{{ .Set "filtered-content" (replace (.Get "filtered-content") `src="//depts.washington.edu/` `src="http://depts.washington.edu/`) }}
 
 {{ .Set "filtered-content-headers" (findRE `<h[2|3|4|5|6]>.*<\/h[2|3|4|5|6]>` (.Get "filtered-content")) }}
 
