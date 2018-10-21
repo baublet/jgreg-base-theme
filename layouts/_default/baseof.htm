@@ -4,34 +4,19 @@
 		{{ partial "head.html" . }}
 	</head>
 	<body class="{{ .File }}{{ if eq (relURL .URL) ("/" | safeHTML) }} home{{ end }}">
-		<a href="#content" class="screen-reader-text">Skip to content</a>
-		<!-- Do not modify this: projects code -->
-		<div class="navigationOtherProjects" id="projects" data-on-click-toggle-class="on">
-		    <div class="navigationOtherProjectsList" id="navigationProjectsList"></div>
-		</div>
-		<!-- End: projects code -->
-		<div class="header">
-			<div class="contentBlock">
-				<div class="logo">
-					{{ block "logo" . }}{{ partial "logo.html" . }}{{ end }}
-				</div>
-				{{ partial "navigation.html" . }}
-			</div>
-		</div>
+		{{ safeHTML  `<?php`  }} include("templates/header.php"); ?>
 		{{ if .Page.IsHome }}
 			{{ partial "homeBanner.html" . }}
 		{{ else }}
 			{{ partial "pageTitle.html" . }}
 		{{ end }}
+
 		<div class="body contentBlock longForm" id="content">
 			{{ partial "sidebar.html" . }}
 			{{ partial "splashImage.html" . }}
 			{{ block "main" . }}{{ end }}
 		</div>
-		{{ partial "footer.html" . }}
-		<script type="text/javascript" src="{{ .Site.BaseURL }}js/projects.js"></script>
-		<script type="text/javascript" src="{{ .Site.BaseURL }}js/hammer.js"></script>
-		<script type="text/javascript" src="{{ .Site.BaseURL }}js/global.js"></script>
-		<script type="text/javascript" src="{{ .Site.BaseURL }}js/custom.js"></script>
+		
+		{{ safeHTML  `<?php`  }} include("templates/footer.php"); ?>
 	</body>
 </html>
