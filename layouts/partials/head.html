@@ -22,9 +22,9 @@ stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,400i,900" rel="stylesheet">
 
 {{ $styles := resources.Get "scss/main.scss" | toCSS $options }}
-<link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
+<link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
 {{ $printStyles := resources.Get "scss/print.scss" | toCSS $options }}
-<link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="print">
+<link rel="stylesheet" href="{{ $printStyles.Permalink }}" media="print">
 
 <!-- Global Site Tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1972947-1"></script>
