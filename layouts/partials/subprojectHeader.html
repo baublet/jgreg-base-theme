@@ -1,1 +1,1 @@
-{{ safeHTML  `<?php`  }} include ("{{ replace (replace ($.Scratch.Get "subproject") "content/" "") ".md" ".php" }}"); ?>
+{{ safeHTML  `<?php`  }} include ("{{ urlize (replace (replace ($.Scratch.Get "subproject") "content/" "") ".md" ".php") }}"); ?>
