@@ -15,6 +15,15 @@ $sidebarOffset: 200px;
 	}
 }
 
+.sidebar ul {
+	margin-left: 1rem;
+}
+
+.sidebar blockquote {
+	font-size: inherit;
+	margin-left: 0;
+}
+
 .sidebar__drag-indicator {
 	position: absolute;
 	z-index: 20;
