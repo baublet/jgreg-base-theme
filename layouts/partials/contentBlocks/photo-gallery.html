@@ -40,10 +40,3 @@
         {{ end }}
     {{ end }}
 </div>
-
-{{ $lightboxAdded := $.Scratch.Get "gallery-requirements-added" }}
-{{ if not $lightboxAdded }}
-    <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}scss/lightgallery.css" />
-    <script src="{{ .Site.BaseURL }}js/vendor/lightgallery.min.js"></script>
-    {{ $.Scratch.Set "gallery-requirements-added" true }}
-{{ end }}
