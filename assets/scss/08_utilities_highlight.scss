@@ -1,0 +1,16 @@
+.highlight {
+    background: $color-primary-slight;
+    box-shadow: 0 0 0 3px $color-primary-slight;
+}
+
+td,
+tr,
+table,
+div,
+ul,
+li,
+blockquote {
+    &.highlight {
+        box-shadow: none;
+    }
+}
