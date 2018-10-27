@@ -1,7 +1,9 @@
 @include onDesktop() {
   .grid {
     display: flex;
-    margin-top: $spacing-larger;
+    * + & {
+      margin-top: $spacing-larger;
+    }
   }
 
   .grid--center {
@@ -21,11 +23,11 @@
   }
 
   .w-1\/4 {
-    width: 25%
+    width: 25%;
   }
 
   .w-1\/2 {
-    width: 50%
+    width: 50%;
   }
 
   .w-3\/4 {

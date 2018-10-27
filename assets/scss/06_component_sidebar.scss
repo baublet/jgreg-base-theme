@@ -15,7 +15,9 @@ $sidebarOffset: 200px;
 	}
 }
 
-.sidebar ul {
+.sidebar ul,
+.sidebar ol {
+	padding: 0;
 	margin-left: 1rem;
 }
 
@@ -53,7 +55,7 @@ $sidebarOffset: 200px;
 	line-height: 1.25;
 
 	float: right;
-	width: 250px;
+	width: 300px;
 
 	margin-right: calc(-#{$sidebarOffset} - #{$spacing-normal});
 	margin-left: $spacing-normal;

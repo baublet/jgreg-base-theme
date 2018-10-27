@@ -3,7 +3,7 @@
     font-size: $font-size-small;
     width: 100%;
     overflow-x: scroll;
-    display: inline;
+    display: block;
     @include onDesktop() {
         overflow: auto;
     }

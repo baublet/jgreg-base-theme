@@ -23,7 +23,11 @@
     }
 }
 
-.mediaWithText--left {
+.mediaWithText img {
+    max-width: 100%;
+}
+
+.mediaWithText--left .mediaWithText__mediaContainer {
     float: left;
 }
 
@@ -46,13 +50,18 @@
 }
 
 .mediaWithText__text {
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         font-family: $font-family-default;
         font-weight: bold;
         font-size: $font-size-large;
         a {
             color: $color-primary;
-            border-bottom: 1px solid rgba($color-foreground, .1);
+            border-bottom: 1px solid rgba($color-foreground, 0.1);
             &:hover,
             &:focus,
             &:active {

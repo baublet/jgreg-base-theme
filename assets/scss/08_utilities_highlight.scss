@@ -3,6 +3,11 @@
     box-shadow: 0 0 0 3px $color-primary-slight;
 }
 
+.highlight-2 {
+    background: yellow;
+    box-shadow: 0 0 0 3px yellow;
+}
+
 td,
 tr,
 table,
@@ -10,7 +15,8 @@ div,
 ul,
 li,
 blockquote {
-    &.highlight {
+    &.highlight,
+    &.highlight-2 {
         box-shadow: none;
     }
 }

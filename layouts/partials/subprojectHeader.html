@@ -1,1 +1,39 @@
-{{ safeHTML  `<?php`  }} include ("{{ urlize (replace (replace ($.Scratch.Get "subproject") "content/" "") ".md" ".php") }}"); ?>
+{{ $subproject := default (.Site.GetPage "page" ($.Scratch.Get "subproject")) (.Site.GetPage (replace ($.Scratch.Get "subproject") "content/" "")) }}
+{{ $.Scratch.Set "current_subproject" $subproject }}
+{{ $context := . }}
+
+{{ if $subproject }}
+    {{ if isset $subproject.Params "project_home_page" }}
+
+        {{ $subprojectHomePage := (.Site.GetPage "page" $subproject.Params.project_home_page) }}
+
+        {{ if $subprojectHomePage }}
+
+            {{ $subprojectHomeLink := $subprojectHomePage.URL | absURL }}
+
+            {{ safeHTML  `<?php`  }} include ("{{ urlize (replace (replace ($.Scratch.Get "subproject") "content/" "") ".md" ".php") }}"); ?>
+
+            {{ if ne $subprojectHomePage .Page }}
+                <div class="subProjectPageTitle">
+                    <div class="contentBlock">
+                        <h1>
+                            {{ if (not (isset .Params "canonical_title")) | or (eq .Params.canonical_title "") }}
+                                {{ .Title }}
+                            {{ else }}
+                                {{ .Params.canonical_title }}
+                            {{ end }}
+                        </h1>
+                        {{ if .Params.Subtitle }}
+                            <h2>{{ .Params.Subtitle }}</h2>
+                        {{ end }}
+                        {{ if .Params.Author }}
+                            <div class="author">by {{ .Params.Author }}</div>
+                        {{ end }}
+                    </div>
+                </div>
+            {{ end }}
+
+        {{ end }}
+
+    {{ end }}
+{{ end }}
