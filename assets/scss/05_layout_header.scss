@@ -1,35 +1,38 @@
 .header {
-	z-index: $layer-header;
-	position: relative;
-	@include onMobile() {
-		.contentBlock {
-			padding: 0;
-		}
-	}
+  z-index: $layer-header;
+  position: relative;
+  background: $color-foreground;
+  color: $color-background;
+  padding: $spacing-normal 0 $spacing-large;
+  @include onMobile() {
+    .contentBlock {
+      padding: 0;
+    }
+  }
 }
 
 @include onMobile() {
-	.header {
-		position: relative;
-	}
+  .header {
+    position: relative;
+  }
 }
 
 .header .contentBlock {
-	position: relative;
+  position: relative;
 }
 
 .header .contentBlock {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	@include onDesktop() {
-		justify-content: space-between;
-		align-items: center;
-	}
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  @include onDesktop() {
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 @include onMobile() {
-	.header {
-		position: relative;
-	}
+  .header {
+    position: relative;
+  }
 }

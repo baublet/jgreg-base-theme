@@ -1,355 +1,333 @@
 body:after {
-	display: block;
-	content: "";
-	z-index: -1;
-	opacity: 0;
-	pointer-events: none;
-	user-select: none;
-	background: $color-foreground;
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
+  display: block;
+  content: "";
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  background: $color-foreground;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .navOpen {
-	overflow: hidden;
-	position: fixed;
-	&:after {
-		z-index: $layer-header - 100;
-		opacity: 1;
-	}
+  overflow: hidden;
+  position: fixed;
+  &:after {
+    z-index: $layer-header - 100;
+    opacity: 1;
+  }
 }
 
 .navigation {
-	width: 100%;
-	margin: 0;
-    font-family: $font-family-small;
-    @include onDesktop() {
-    	width: auto;
-    }
+  width: 100%;
+  margin: 0;
+  font-family: $font-family-small;
+  @include onDesktop() {
+    width: auto;
+  }
 }
 
 .navigationToggleLabel span + i {
-	margin-left: $spacing-small;
-	font-size: 1.2em;
-	opacity: .5;
+  margin-left: $spacing-small;
+  font-size: 1.2em;
+  opacity: 0.5;
 }
 
 .navigationToggleLabel:hover span + i {
-	opacity: 1;
+  opacity: 1;
 }
 
 .navigationToggleInput {
-	display: none;
+  display: none;
 }
 
 .navigationToggleLabel,
 .navigationOverflowLabel {
-	position: fixed;
-	top: 0;
-	right: 0;
-	left: 0;
-	text-transform: uppercase;
-	font-size: $font-size-smaller;
-	font-weight: bold;
-	padding: $spacing-normal $spacing-normal;
-	color: $color-background;
-	background: $color-primary;
-	cursor: pointer;
-	box-shadow: 3px 3px 5px -3px rgba($color-foreground, .5);
-	border: 1px solid rgba($color-foreground, .15);
-	border-top: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  text-transform: uppercase;
+  font-size: $font-size-smaller;
+  font-weight: bold;
+  padding: $spacing-normal $spacing-normal;
+  color: $color-background;
+  background: $color-primary;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px -3px rgba($color-foreground, 0.5);
+  border: 1px solid rgba($color-foreground, 0.15);
+  border-top: 0;
 
-	display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    transition: all .15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 
+  .fa-times-circle {
+    position: absolute;
+    right: $spacing-normal;
+    top: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-10rem, -50%);
+    transition: 0.24s all ease-in-out;
+  }
+
+  .navigationToggleInput:checked + & {
+    background: $color-foreground;
+    opacity: 1;
     .fa-times-circle {
-    	position: absolute;
-    	right: $spacing-normal;
-    	top: 50%;
-		opacity: 0;
-		pointer-events: none;
-		transform: translate(-10rem, -50%);
-		transition: .24s all ease-in-out;
-	}
-
-    .navigationToggleInput:checked + & {
-    	background: $color-foreground;
-    	opacity: 1;
-    	.fa-times-circle {
-			opacity: 1;
-			pointer-events: auto;
-			transform: translate(0, -50%);
-		}
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(0, -50%);
     }
+  }
 
-    @include onDesktop() {
-    	display: none;
-    }
+  @include onDesktop() {
+    display: none;
+  }
 }
 
 .navigationToggleLabel .fa-times-circle {
-	position: absolute;
-	right: $spacing-normal;
-	top: 50%;
-	opacity: 0;
-	pointer-events: none;
-	transform: translate(-10rem, -50%);
-	transition: .24s all ease-in-out;
+  position: absolute;
+  right: $spacing-normal;
+  top: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-10rem, -50%);
+  transition: 0.24s all ease-in-out;
 }
 
 .navigation h3 {
-	margin-bottom: $spacing-normal;
+  margin-bottom: $spacing-normal;
 }
 
 .navigationList {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  white-space: nowrap;
 }
 
 .navigationList a {
-	padding: $spacing-small 0;
-	width: calc(50% - 6px);
-	text-align: center;
-	border: 1px solid rgba($color-foreground, .15);
-	border-radius: 3px;
-	display: block;
-	text-decoration: none;
-	font-weight: bold;
-	color: $color-foreground;
-	margin: 3px;
-	.fas {
-		display: block;
-		font-size: $font-size-large;
-		margin-bottom: $spacing-small;
-		opacity: .15;
-	}
-	&:hover,
-	&:active,
-	&:focus {
-		.fas {
-			opacity: .25;
-		}
-	}
-	@include onDesktop() {
-		width: auto;
-		border: 0;
-		margin: 0;
-		+ a {
-			margin-left: $spacing-normal;
-		}
-	}
-}
-
-.navigationList a {
-	font-size: $font-size-smaller;
-	display: block;
-	text-decoration: none;
-	font-weight: bold;
-	color: $color-foreground;
-	text-align: center;
-	.fas {
-		display: block;
-		font-size: $font-size-large;
-		margin-bottom: $spacing-small;
-		opacity: .15;
-	}
-	&:hover,
-	&:active,
-	&:focus {
-		.fas {
-			opacity: .25;
-		}
-	}
+  padding: $spacing-small 0;
+  width: calc(50% - 6px);
+  text-align: center;
+  border: 1px solid rgba($color-foreground, 0.15);
+  border-radius: 3px;
+  display: block;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: $font-size-smaller;
+  color: $color-foreground;
+  margin: 3px;
+  .fas {
+    display: block;
+    font-size: $font-size-large;
+    margin-bottom: $spacing-small;
+    opacity: 0.15;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    .fas {
+      opacity: 0.25;
+    }
+  }
+  @include onDesktop() {
+    width: auto;
+    border: 0;
+    margin: 0;
+    color: $color-background;
+    + a {
+      margin-left: $spacing-normal;
+    }
+  }
 }
 
 .navigationItems {
-	margin: 0;
-	opacity: 0;
-	position: fixed;
+  margin: 0;
+  opacity: 0;
+  position: fixed;
 
-	top: 3rem;
-	right: 1rem;
-	bottom: 1rem;
-	left: 1rem;
+  top: 3rem;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
 
-	padding: $spacing-normal;
+  padding: $spacing-normal;
 
-	background: $color-background;
-	box-shadow: 3px 3px 5px -3px rgba($color-foreground, .5);
+  background: $color-background;
+  box-shadow: 3px 3px 5px -3px rgba($color-foreground, 0.5);
 
-	pointer-events: none;
-	overflow-y: auto;
+  pointer-events: none;
+  overflow-y: auto;
 
-	@include onDesktop() {
-		position: static;
-		opacity: 1;
-		pointer-events: auto;
-		box-shadow: none;
-		padding: 0;
-	}
+  @include onDesktop() {
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+    box-shadow: none;
+    padding: 0;
+    background: transparent;
+  }
 }
 
 .navigationToggleInput:checked ~ .navigationItems {
-	opacity: 1;
-	pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .navigationOverflow {
-	margin-top: $spacing-normal;
-	@include onDesktop() {
-		font-size: $font-size-small;
-		position: absolute;
-		right: 10px;
-		left: 10px;
-		top: 100%;
-		background: $color-background;
-		padding: $spacing-normal;
-		box-shadow: 0 0 0 10px rgba($color-foreground, .5);
-		display: none;
-		.navigationOverflowCheck:checked ~ & {
-			display: block;
-		}
-	}
+  margin-top: $spacing-normal;
+  @include onDesktop() {
+    font-size: $font-size-small;
+    position: absolute;
+    right: 10px;
+    left: 10px;
+    top: 100%;
+    background: $color-background;
+    padding: $spacing-normal;
+    box-shadow: 0 0 0 10px rgba($color-foreground, 0.5);
+    display: none;
+    .navigationOverflowCheck:checked ~ & {
+      display: block;
+    }
+  }
 }
 
 @include onDesktop() {
-	.navigationOverflow ul {
-		columns: 3;
-		list-style-type: none;
-		padding: 0;
-		margin: 0;
-		li {
-			padding: $spacing-small;
-			line-height: 1.1;
-			position: relative;
-			padding-left: $spacing-normal;
-			&:before {
-				content: "\25AA";
-				opacity: .25;
-				position: absolute;
-				left: 0;
-				top: .5em;
-			}
-			&:hover:before {
-				opacity: .75;
-			}
-		}
-	}
-}
-
-.navigationList {
-	white-space: nowrap;
+  .navigationOverflow ul {
+    columns: 3;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li {
+      padding: $spacing-small;
+      line-height: 1.1;
+      position: relative;
+      padding-left: $spacing-normal;
+      &:before {
+        content: "\25AA";
+        opacity: 0.25;
+        position: absolute;
+        left: 0;
+        top: 0.5em;
+      }
+      &:hover:before {
+        opacity: 0.75;
+      }
+    }
+  }
 }
 
 .navigationCurrentProject:before {
-	font-size: $font-size-smaller;
-	color: rgba($color-foreground, .33);
-	text-transform: uppercase;
-	display: block;
-	content: "Current Project";
-	pointer-events: none;
-	margin-bottom: $spacing-small;
+  font-size: $font-size-smaller;
+  color: rgba($color-foreground, 0.33);
+  text-transform: uppercase;
+  display: block;
+  content: "Current Project";
+  pointer-events: none;
+  margin-bottom: $spacing-small;
 }
 
 .navigationCurrentProject {
-	@include onDesktop() {
-		display: none;
-	}
+  @include onDesktop() {
+    display: none;
+  }
 }
 
 .navigationOverflow h4 {
-	color: rgba($color-foreground, .5);
-	text-transform: uppercase;
-	font-size: $font-size-small;
-	margin-bottom: $spacing-normal;
+  color: rgba($color-foreground, 0.5);
+  text-transform: uppercase;
+  font-size: $font-size-small;
+  margin-bottom: $spacing-normal;
 }
 
 .navigationOverflow hr {
-	border: 0;
-	height: 1px;
-	border-top: 1px solid rgba($color-foreground, .15);
-	margin: $spacing-large auto;
-	max-width: 90%;
+  border: 0;
+  height: 1px;
+  border-top: 1px solid rgba($color-foreground, 0.15);
+  margin: $spacing-large auto;
+  max-width: 90%;
 }
 
 .navigationOverflowLabel {
-	display: block;
-	position: absolute;
-	top: calc(100% + 5px);
-	right: 15px;
-	bottom: auto;
-	left: auto;
-	background: $color-primary-light;
-	z-index: 1;
-	padding: $spacing-smaller $spacing-small;
-	font-size: $font-size-smallest;
-	&:hover {
-		opacity: 1;
-	}
-	.fas {
-		opacity: .5;
-		font-size: $font-size-normal;
-		margin-left: $spacing-smaller;
-		vertical-align: middle;
-	}
-	.navigationOverflowLabel__off {
-		display: block;
-	}
-	.navigationOverflowLabel__on {
-		display: none;
-	}
-	.navigationOverflowCheck:checked + & {
-		.navigationOverflowLabel__off {
-			display: none;
-		}
-		.navigationOverflowLabel__on {
-			display: block;
-		}
-	}
+  display: block;
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 15px;
+  bottom: auto;
+  left: auto;
+  background: $color-primary-light;
+  z-index: 1;
+  padding: $spacing-smaller $spacing-small;
+  font-size: $font-size-smallest;
+  &:hover {
+    opacity: 1;
+  }
+  .fas {
+    opacity: 0.5;
+    font-size: $font-size-normal;
+    margin-left: $spacing-smaller;
+    vertical-align: middle;
+  }
+  .navigationOverflowLabel__off {
+    display: block;
+  }
+  .navigationOverflowLabel__on {
+    display: none;
+  }
+  .navigationOverflowCheck:checked + & {
+    .navigationOverflowLabel__off {
+      display: none;
+    }
+    .navigationOverflowLabel__on {
+      display: block;
+    }
+  }
 }
 
 .navigationOverflowBottom {
-	display: flex;
-	justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .socialMediaFacebook {
-	text-decoration: none;
-	color: $color-foreground;
-	padding: $spacing-small;
-	border-radius: 3px;
-	border: 1px solid transparent;
-	.fab {
-		transform: scale(1.3, 1.3);
-		margin-right: 3px;
-		opacity: .75;
-		color: #3b5998;
-	}
-	&:hover,
-	&:focus,
-	&:active {
-		background: rgba($color-foreground, .1);
-		border-color: rgba($color-foreground, .25);
-		.fab {
-			opacity: 1;
-		}
-	}
+  text-decoration: none;
+  color: $color-foreground;
+  padding: $spacing-small;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  .fab {
+    transform: scale(1.3, 1.3);
+    margin-right: 3px;
+    opacity: 0.75;
+    color: #3b5998;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    background: rgba($color-foreground, 0.1);
+    border-color: rgba($color-foreground, 0.25);
+    .fab {
+      opacity: 1;
+    }
+  }
 }
 
 .navigationOverflowBottom__searchButton {
-	background: transparent;
-	color: rgba($color-foreground, .75);
-	&:hover,
-	&:active,
-	&:focus {
-		color: $color-foreground;
-		background: transparent;
-	}
+  background: transparent;
+  color: rgba($color-foreground, 0.75);
+  &:hover,
+  &:active,
+  &:focus {
+    color: $color-foreground;
+    background: transparent;
+  }
 }
