@@ -1,7 +1,0 @@
-{{ .Scratch.Set "filtered-content" (.Scratch.Get "current_block").content }}
-{{ partial "filterPasted.html" .Scratch }}
-{{ $content := .Scratch.Get "filtered-content" }}
-
-<div class="float--{{ if eq (.Scratch.Get "current_block").position "Right" }}right{{ else }}left{{ end }}">
-    {{ $content | markdownify | safeHTML }}
-</div>

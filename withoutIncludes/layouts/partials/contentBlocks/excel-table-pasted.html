@@ -1,5 +1,0 @@
-{{ $block := .Scratch.Get "current_block" }}
-
-<div class="table-from-excel">
-    {{ $block.content | markdownify | safeHTML }}
-</div>
