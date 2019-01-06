@@ -1,0 +1,25 @@
+{{ $block := .Scratch.Get "current_block" }}
+{{ $context := . }}
+
+{{ if (isset $block "title") | and (ne $block.title "") }}
+    <h2 class="photo-gallery--title">{{ $block.title }}</h2>
+{{ end }}
+
+<div class="photo-gallery">
+    {{ range $block.images }}
+        {{ $imageResource := ($.Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" . ) }}
+        {{ if $imageResource }}
+            {{ $image := ($imageResource.Fill "100x100").Permalink }}
+            <a href="{{ $imageResource.Permalink | safeURL }}" class="photo-gallery--link">
+                <img src="{{ $image }}" class="photo-gallery--image" />
+            </a>
+        {{ end }}
+    {{ end }}
+</div>
+
+{{ $lightboxAdded := $.Scratch.Get "gallery-requirements-added" }}
+{{ if not $lightboxAdded }}
+    <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}scss/lightgallery.css" />
+    <script src="{{ .Site.BaseURL }}js/vendor/lightgallery.min.js"></script>
+    {{ $.Scratch.Set "gallery-requirements-added" true }}
+{{ end }}

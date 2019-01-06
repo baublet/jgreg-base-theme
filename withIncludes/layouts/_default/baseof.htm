@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		{{ partial "head.html" . }}
+	</head>
+	<body class="{{ .File }}{{ if eq (relURL .URL) ("/" | safeHTML) }} home{{ end }}">
+		{{ safeHTML  `<?php`  }} include("templates/header.php"); ?>
+		{{ if .Page.IsHome }}
+			{{ partial "homeBanner.html" . }}
+		{{ else }}
+			{{ partial "pageTitle.html" . }}
+		{{ end }}
+
+		<div class="body contentBlock longForm" id="content">
+			{{ partial "sidebar.html" . }}
+			{{ partial "splashImage.html" . }}
+			{{ block "main" . }}{{ end }}
+		</div>
+		
+		{{ safeHTML  `<?php`  }} include("templates/footer.php"); ?>
+	</body>
+</html>

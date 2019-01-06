@@ -1,0 +1,7 @@
+{{ $block := .Scratch.Get "current_block" }}
+{{ $context := . }}
+
+{{ range $block.interviews }}
+	{{ $.Scratch.Set "current_interview" . }}
+	{{ partial "contentBlocks/interview.html" $context }}
+{{ end }}

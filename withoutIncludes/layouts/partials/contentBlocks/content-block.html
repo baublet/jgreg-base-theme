@@ -1,0 +1,4 @@
+{{ .Scratch.Set "filtered-content" (.Scratch.Get "current_block").content }}
+{{ partial "filterPasted.html" .Scratch }}
+{{ $content := .Scratch.Get "filtered-content" }}
+{{ $content | safeHTML }}

@@ -1,0 +1,22 @@
+{{ if .Params.subproject }}
+	{{ $.Scratch.Set "subproject" .Params.subproject }}
+	{{ partial "subprojectHeader.html" . }}
+{{ else }}
+	<div class="pageTitle">
+		<div class="contentBlock">
+			<h1>
+				{{ if (not (isset .Params "canonical_title")) | or (eq .Params.canonical_title "") }}
+					{{ .Title }}
+				{{ else }}
+					{{ .Params.canonical_title }}
+				{{ end }}
+			</h1>
+			{{ if .Params.Subtitle }}
+				<h2>{{ .Params.Subtitle }}</h2>
+			{{ end }}
+			{{ if .Params.Author }}
+				<div class="author">by {{ .Params.Author }}</div>
+			{{ end }}
+		</div>
+	</div>
+{{ end }}

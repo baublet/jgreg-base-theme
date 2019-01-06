@@ -1,0 +1,25 @@
+{{ .Set "filtered-content" (replaceRE "&nbsp;" " " (.Get "filtered-content")) }}
+{{ .Set "filtered-content" (replaceRE `href\=\"[^#\"\>]+#_edn(\d+)\"` "href=\"#note$1\" name=\"ref$1\"" (.Get "filtered-content")) }}
+{{ .Set "filtered-content" (replaceRE `href\=\"[^#\"\>]+#_ednref(\d+)\"` "href=\"#ref$1\" name=\"note$1\"" (.Get "filtered-content")) }}
+{{ .Set "filtered-content" (replaceRE `\[(\d+)\]` "$1" (.Get "filtered-content")) }}
+{{ .Set "filtered-content" (replaceRE `class="(?:MsoNormal|MsoEndnoteText)"` "" (.Get "filtered-content")) }}
+{{ .Set "filtered-content" (replaceRE `https?:\/\/depts\.washington\.edu\/civilr\/([^#"]+)\.html?` `$1.htm` (.Get "filtered-content")) }}
+{{ .Set "filtered-content" (replaceRE `[…\.]{2,}` "…" (.Get "filtered-content")) }}
+{{ .Set "filtered-content" (replaceRE `href="\/?(([^"])+\.(?:com|net|org|edu|io|gov|mil|info|gov))` `href="http://$1` (.Get "filtered-content")) }}
+
+{{ .Set "filtered-content" (replace (.Get "filtered-content") `n` `ñ`) }}
+{{ .Set "filtered-content" (replace (.Get "filtered-content") `http:///` `http://`) }}
+{{ .Set "filtered-content" (replace (.Get "filtered-content") `class="style5 style8 style19"` ``) }}
+{{ .Set "filtered-content" (replace (.Get "filtered-content") `class="arial10 style13"` ``) }}
+{{ .Set "filtered-content" (replace (.Get "filtered-content") `Oscar Rosales Castaneda` `Oscar Rosales Castañeda`) }}
+{{ .Set "filtered-content" (replace (.Get "filtered-content") `href="//depts.washington.edu/` `href="http://depts.washington.edu/`) }}
+{{ .Set "filtered-content" (replace (.Get "filtered-content") `src="//depts.washington.edu/` `src="http://depts.washington.edu/`) }}
+
+{{ .Set "filtered-content-headers" (findRE `<h[2|3|4|5|6]>.*<\/h[2|3|4|5|6]>` (.Get "filtered-content")) }}
+
+{{ $context := . }}
+{{ range $header := (.Get "filtered-content-headers") }}
+    {{ $context.Set "filtered-content-headers-plain" (urlize (plainify $header)) }}
+    {{ $context.Set "filtered-content-headers-fixed" (replaceRE `(<h[2|3|4|5|6])>` (printf `$1 id="%v">` ($context.Get "filtered-content-headers-plain")) $header) }}
+    {{ $context.Set "filtered-content" (replace ($context.Get "filtered-content") $header ($context.Get "filtered-content-headers-fixed")) }}
+{{ end }}

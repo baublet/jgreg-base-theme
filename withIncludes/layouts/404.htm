@@ -1,0 +1,25 @@
+{{ define "main"}}
+
+<div class="subProjectPageTitle">
+    <div class="contentBlock fourOhFour_header">
+        <div class="fourOhFour_title">
+            <h1>Page not found</h1>
+            <h2>404</h2>
+        </div>
+        <div class="fourOhFour_search">
+            <form action="https://www.google.com/search" method="get">
+                <input type="hidden" name="as_sitesearch" value="depts.washington.edu/civilr" />
+                <input type="text" placeholder="Search this site" class="navigationOverflowBottom__searchInput" autocomplete="off" name="as_q" spellcheck="false" />
+                <button class="navigationOverflowBottom__searchButton" type="submit">
+                    <i class="fas fa-search"></i>
+                    <span class="screenReaderText">Search</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="body contentBlock longForm">
+    <p>The page you requested either moved or does not exist.</p>
+</div>
+
+{{ end }}

@@ -1,0 +1,21 @@
+<title>
+    {{ if isset .Params "canonical_title" | and (ne .Params.canonical_title "") }}
+        {{ .Params.canonical_title }}{{ if .Params.subtitle }}:{{ end }}
+    {{ else }}
+        {{ .Title }}{{ if .Params.subtitle }}:{{ end }}
+    {{ end }}
+    {{ if .Params.subtitle }}{{ .Params.subtitle }}{{ end }}
+    {{ if .Page.IsHome }}{{ else }}-{{ end }}
+    {{ .Site.Title }}
+</title>
+
+<meta name="description" content="{{ truncate 300 (plainify .Content) }}">
+
+<!--
+    {{ $styles := resources.Get "scss/main.scss" | toCSS }}
+    <link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
+    {{ $printStyles := resources.Get "scss/print.scss" | toCSS }}
+    <link rel="stylesheet" href="{{ $printStyles.Permalink }}" media="print">
+-->
+
+{{ safeHTML  `<?php`  }} include("templates/head.php"); ?>

@@ -1,0 +1,7 @@
+{{ $partialsDir := "layout/partials/" }}
+{{ $context := . }}
+
+{{ range $index, $block := ($.Scratch.Get "content_blocks") }}
+	{{ $.Scratch.Set "current_block" $block }}
+	{{ partial (printf "contentBlocks/%s.html" $block.template) $context }}
+{{ end }}
